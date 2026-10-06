@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АСУ ГО и ЧС Предприятия</title>
+<style>
+  :root {
+    --icon-color: #1a3a6b;
+    --icon-muted: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 13px; }
+
+  /* SVG Icons */
+  .icon { display: inline-block; vertical-align: middle; fill: var(--icon-color); flex-shrink: 0; }
+  .icon-muted { fill: var(--icon-muted); }
+  .icon-sm { width: 14px; height: 14px; }
+  .icon-md { width: 18px; height: 18px; }
+  .icon-lg { width: 22px; height: 22px; }
+  .icon-xl { width: 26px; height: 26px; }
+
+  /* Top Header */
+  .top-header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fff; border-bottom: 1px solid #d0d5dd; padding: 8px 20px; height: 56px;
+  }
+  .top-header-left { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 32px; height: 32px; }
+  .logo-text { font-size: 15px; font-weight: 700; color: #1a3a6b; }
+  .logo-sub { font-size: 11px; color: #667085; }
+  
+  .header-badges { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
+  .badge { display: flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 6px; font-size: 11px; border: 1px solid #d0d5dd; background: #f8f9fa; white-space: nowrap; }
+  .badge-green { border-color: #b7eb8f; background: #f6ffed; color: #389e0d; }
+  .badge-blue { border-color: #91caff; background: #e6f4ff; color: #0958d9; }
+  .badge-red { border-color: #ffccc7; background: #fff2f0; color: #cf1322; }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot-green { background: #52c41a; }
+  .dot-blue { background: #1890ff; }
+  .dot-red { background: #ff4d4f; }
+  
+  .header-right { display: flex; align-items: center; gap: 16px; }
+  .user-block { display: flex; align-items: center; gap: 10px; padding: 4px 12px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e8ecf1; }
+  .user-avatar { width: 36px; height: 36px; border-radius: 50%; background: #1a3a6b; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .user-info { text-align: left; line-height: 1.3; }
+  .user-name { font-weight: 600; font-size: 13px; color: #1a3a6b; }
+  .user-role { font-size: 11px; color: #667085; }
+  .header-icons { display: flex; gap: 10px; padding-left: 12px; border-left: 1px solid #e8ecf1; }
+  .header-icons button {
+    background: none; border: none; cursor: pointer; padding: 6px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  }
+  .header-icons button:hover { background: #f0f4ff; }
+  .header-icons button:hover .icon { fill: #0f2850; }
+
+  /* Layout */
+  .layout { display: flex; min-height: calc(100vh - 56px); }
+
+  /* Sidebar */
+  .sidebar {
+    width: 280px; background: #fff; border-right: 1px solid #d0d5dd;
+    padding: 20px 0; flex-shrink: 0;
+  }
+  .sidebar-status { padding: 0 20px 16px; border-bottom: 2px solid #e8ecf1; margin-bottom: 12px; }
+  .sidebar-status h2 { font-size: 15px; color: #1a3a6b; display: flex; align-items: center; gap: 8px; font-weight: 700; }
+  .sidebar-status p { font-size: 11px; color: #667085; margin-top: 4px; line-height: 1.4; }
+  
+  .nav-item {
+    display: flex; align-items: center; gap: 10px; padding: 11px 20px;
+    cursor: pointer; font-size: 13px; color: #344054; transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .nav-item:hover { background: #f0f4ff; color: #1a3a6b; }
+  .nav-item.active { background: #e8f0fe; color: #1a3a6b; font-weight: 600; border-left-color: #1a3a6b; }
+  .nav-item .nav-icon { width: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-badge { margin-left: auto; background: #1a3a6b; color: #fff; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .nav-section-title { font-size: 10px; text-transform: uppercase; color: #98a2b3; padding: 20px 20px 8px; letter-spacing: 0.5px; font-weight: 700; }
+
+  /* Main Content */
+  .main { flex: 1; padding: 20px; overflow-x: auto; background: #f0f2f5; }
+
+  /* Alert Banner */
+  .alert-banner {
+    background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 8px;
+    padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .alert-banner .alert-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .alert-banner p { font-size: 12px; color: #92400e; line-height: 1.5; }
+  .alert-banner .level-tag {
+    margin-left: auto; background: #fef3c7; border: 1px solid #fde68a;
+    padding: 5px 12px; border-radius: 5px; font-size: 11px; color: #92400e;
+    white-space: nowrap; flex-shrink: 0; font-weight: 600;
+  }
+
+  /* Action Buttons */
+  .action-row { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .action-btn {
+    display: flex; align-items: center; gap: 6px; padding: 8px 14px;
+    border: 1px solid #d0d5dd; border-radius: 6px; background: #fff;
+    font-size: 12px; cursor: pointer; color: #344054; transition: all 0.2s; font-weight: 500;
+  }
+  .action-btn:hover { background: #f8f9fa; border-color: #98a2b3; transform: translateY(-1px); }
+  .action-btn.disabled { opacity: 0.5; cursor: not-allowed; background: #f1f5f9; }
+  .export-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 12px; color: #667085; font-weight: 500; }
+  .export-btn { padding: 5px 12px; border: 1px solid #d0d5dd; border-radius: 5px; background: #fff; font-size: 11px; cursor: pointer; transition: all 0.2s; }
+  .export-btn:hover { background: #f0f4ff; border-color: #1a3a6b; }
+
+  /* KPI Cards */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+  .kpi-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 18px; position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
+  }
+  .kpi-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .kpi-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .kpi-card-title { font-size: 13px; font-weight: 600; color: #1e293b; }
+  .kpi-value { font-size: 34px; font-weight: 700; color: #1e293b; line-height: 1.1; margin: 8px 0; }
+  .kpi-value .kpi-unit { font-size: 16px; font-weight: 400; color: #64748b; }
+  .kpi-value .kpi-sub { font-size: 14px; font-weight: 400; color: #64748b; }
+  .kpi-percent { font-size: 14px; font-weight: 700; color: #16a34a; float: right; margin-top: -32px; background: #f0fdf4; padding: 3px 8px; border-radius: 4px; }
+  .kpi-tag { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 5px; font-size: 11px; margin-top: 10px; font-weight: 500; }
+  .kpi-tag-green { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  .kpi-tag-orange { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+  .kpi-tag-red { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+  .kpi-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid #f1f5f9; font-size: 11px; color: #64748b; }
+  .kpi-footer a { color: #1a3a6b; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+  .kpi-footer a:hover { text-decoration: underline; }
+
+  /* Table Section */
+  .table-section {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    margin-bottom: 20px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .table-header { padding: 16px 20px; border-bottom: 2px solid #e2e8f0; background: #f8fafc; }
+  .table-header h3 { font-size: 15px; font-weight: 700; color: #1e293b; }
+  .table-header p { font-size: 12px; color: #64748b; margin-top: 3px; }
+  .table-header .total-badge { background: #e0e7ff; color: #3730a3; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin-left: 10px; font-weight: 600; }
+  .table-filters { display: flex; gap: 10px; padding: 12px 20px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; background: #fff; }
+  .filter-input {
+    flex: 1; min-width: 220px; padding: 8px 14px 8px 36px; border: 1px solid #d0d5dd;
+    border-radius: 7px; font-size: 12px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2398a2b3' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") 12px center no-repeat; transition: all 0.2s;
+  }
+  .filter-input:focus { outline: none; border-color: #1a3a6b; box-shadow: 0 0 0 3px rgba(26,58,107,0.1); }
+  .filter-select { padding: 8px 14px; border: 1px solid #d0d5dd; border-radius: 7px; font-size: 12px; background: #fff; min-width: 180px; cursor: pointer; }
+  .filter-select:focus { outline: none; border-color: #1a3a6b; }
+  .filter-reset { padding: 8px 16px; border: 1px solid #d0d5dd; border-radius: 7px; background: #fff; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: 500; color: #64748b; transition: all 0.2s; }
+  .filter-reset:hover { background: #f8f9fa; border-color: #98a2b3; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    background: #f8fafc; padding: 12px 16px; text-align: left; font-size: 11px;
+    font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0; white-space: nowrap;
+  }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; font-size: 12px; vertical-align: middle; }
+  .data-table tr:hover { background: #f8fafc; }
+  .formation-code { font-weight: 700; color: #1a3a6b; font-size: 12px; background: #e8f0fe; padding: 3px 8px; border-radius: 4px; }
+  .formation-name { font-weight: 600; color: #1e293b; }
+  .formation-desc { font-size: 11px; color: #64748b; margin-top: 2px; }
+  .formation-desc.alert-text { color: #dc2626; font-weight: 500; }
+  .staff-count { font-weight: 700; color: #1e293b; }
+  .staff-count.warn { color: #d97706; }
+  .tech-tag { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 3px 10px; border-radius: 5px; font-size: 11px; white-space: nowrap; font-weight: 500; }
+  .status-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .status-ready { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  .status-limited { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+  .status-training { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+  .channel-tag { font-size: 11px; color: #475569; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+  .action-icons { display: flex; gap: 8px; }
+  .action-icons button {
+    background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  }
+  .action-icons button:hover { background: #f0f4ff; }
+  .action-icons button:hover .icon { fill: #0f2850; }
+  .read-only-btn { padding: 4px 10px; border: 1px solid #d0d5dd; border-radius: 5px; font-size: 10px; color: #64748b; background: #f8fafc; font-weight: 600; }
+
+  /* Table Footer */
+  .table-footer { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 2px solid #e2e8f0; font-size: 11px; color: #64748b; background: #f8fafc; flex-wrap: wrap; gap: 10px; }
+  .table-footer .hash { font-family: 'Courier New', monospace; color: #94a3b8; background: #f1f5f9; padding: 2px 6px; border-radius: 3px; }
+  .pagination { display: flex; gap: 5px; align-items: center; }
+  .pagination button { padding: 5px 12px; border: 1px solid #d0d5dd; border-radius: 5px; background: #fff; font-size: 11px; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+  .pagination button:hover { background: #f0f4ff; border-color: #1a3a6b; }
+  .pagination button.active { background: #1a3a6b; color: #fff; border-color: #1a3a6b; }
+
+  /* Bottom Cards */
+  .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .bottom-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .bottom-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9; }
+  .bottom-card-header h3 { font-size: 14px; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 7px; }
+  .bottom-card-header .freq { font-size: 11px; color: #94a3b8; font-weight: 500; }
+  .status-tag-online { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; padding: 3px 10px; border-radius: 5px; font-size: 11px; font-weight: 700; }
+
+  .sys-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+  .sys-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; position: relative; background: #f8fafc; transition: all 0.2s; }
+  .sys-card:hover { border-color: #1a3a6b; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+  .sys-card-title { font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
+  .sys-card-desc { font-size: 11px; color: #64748b; margin-bottom: 7px; }
+  .sys-card-status { font-size: 11px; color: #16a34a; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+  .sys-card-status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #16a34a; }
+  .sys-card .status-dot { position: absolute; top: 12px; right: 12px; width: 9px; height: 9px; border-radius: 50%; background: #16a34a; border: 2px solid #fff; box-shadow: 0 0 0 2px #16a34a; }
+
+  .bottom-note { font-size: 11px; color: #64748b; line-height: 1.6; margin-bottom: 12px; padding: 10px; background: #f8fafc; border-radius: 6px; border-left: 3px solid #1a3a6b; }
+  .bottom-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #f1f5f9; font-size: 11px; color: #64748b; }
+  .bottom-footer a { color: #1a3a6b; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+  .bottom-footer a:hover { text-decoration: underline; }
+
+  .crypto-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; margin-top: 14px; font-size: 11px; background: #f8fafc; }
+  .crypto-box .crypto-title { font-weight: 700; color: #1e293b; }
+  .crypto-box .crypto-val { color: #16a34a; font-weight: 700; }
+
+  .sync-list { display: flex; flex-direction: column; gap: 10px; }
+  .sync-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 7px; transition: all 0.2s; background: #fff; }
+  .sync-item:hover { border-color: #1a3a6b; background: #f8fafc; }
+  .sync-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+  .sync-dot.green { background: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.2); }
+  .sync-dot.orange { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); }
+  .sync-dot.red { background: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
+  .sync-label { flex: 1; font-size: 12px; color: #344054; font-weight: 500; }
+  .sync-value { font-size: 15px; font-weight: 700; min-width: 70px; text-align: right; }
+  .sync-value.green { color: #16a34a; }
+  .sync-value.orange { color: #d97706; }
+  .sync-value.red { color: #dc2626; }
+
+  .view-order-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 11px; border: 1px solid #d0d5dd;
+    border-radius: 7px; background: #f8fafc; text-align: center; font-size: 12px;
+    color: #1a3a6b; cursor: pointer; margin-top: 14px; font-weight: 600; transition: all 0.2s;
+  }
+  .view-order-btn:hover { background: #e8f0fe; border-color: #1a3a6b; transform: translateY(-1px); }
+  .bottom-card-note { font-size: 10px; color: #94a3b8; text-align: center; margin-top: 8px; font-style: italic; }
+
+  /* Адаптивность */
+  @media (max-width: 1400px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .header-badges { display: none; }
+    .bottom-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .layout { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #d0d5dd; }
+    .kpi-row { grid-template-columns: 1fr; }
+    .sys-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SVG Icons Definitions (hidden) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Bell / Уведомления -->
+    <symbol id="icon-bell" viewBox="0 0 24 24">
+      <path d="M12 2C10.9 2 10 2.9 10 4V4.29C7.03 5.17 5 7.9 5 11V17L3 19V20H21V19L19 17V11C19 7.9 16.97 5.17 14 4.29V4C14 2.9 13.1 2 12 2ZM12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22Z"/>
+    </symbol>
+    <!-- Shield / Безопасность -->
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/>
+    </symbol>
+    <!-- Signal / Канал связи -->
+    <symbol id="icon-signal" viewBox="0 0 24 24">
+      <path d="M12 3C7.95 3 4.21 4.34 1.2 6.6L3 9C5.5 7.12 8.62 6 12 6C15.38 6 18.5 7.12 21 9L22.8 6.6C19.79 4.34 16.05 3 12 3ZM12 9C9.3 9 6.81 9.89 4.8 11.4L6.6 13.8C8.1 12.67 9.97 12 12 12C14.03 12 15.9 12.67 17.4 13.8L19.2 11.4C17.19 9.89 14.7 9 12 9ZM12 15C10.9 15 9.84 15.2 8.84 15.57L12 19.73L15.16 15.57C14.16 15.2 13.1 15 12 15Z"/>
+    </symbol>
+    <!-- Eye / Просмотр -->
+    <symbol id="icon-eye" viewBox="0 0 24 24">
+      <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z"/>
+    </symbol>
+    <!-- Document / Документ -->
+    <symbol id="icon-doc" viewBox="0 0 24 24">
+      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"/>
+    </symbol>
+    <!-- Warning / Предупреждение -->
+    <symbol id="icon-warning" viewBox="0 0 24 24">
+      <path d="M1 21H23L12 2L1 21ZM13 18H11V16H13V18ZM13 14H11V10H13V14Z"/>
+    </symbol>
+    <!-- Check / Галочка -->
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+    </symbol>
+    <!-- Refresh / Сброс -->
+    <symbol id="icon-refresh" viewBox="0 0 24 24">
+      <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4C7.58 4 4.01 7.58 4.01 12S7.58 20 12 20C15.73 20 18.84 17.45 19.73 14H17.65C16.83 16.33 14.61 18 12 18C8.69 18 6 15.31 6 12S8.69 6 12 6C13.66 6 15.14 6.69 16.22 7.78L13 11H20V4L17.65 6.35Z"/>
+    </symbol>
+    <!-- Swap / Тест сокетов -->
+    <symbol id="icon-swap" viewBox="0 0 24 24">
+      <path d="M6.99 11L3 15L6.99 19V16H14V14H6.99V11ZM21 9L17.01 5V8H10V10H17.01V13L21 9Z"/>
+    </symbol>
+    <!-- Chart / Мониторинг -->
+    <symbol id="icon-chart" viewBox="0 0 24 24">
+      <path d="M3 13H7V21H3V13ZM10 9H14V21H10V9ZM17 5H21V21H17V5Z"/>
+    </symbol>
+    <!-- Users / Формирования -->
+    <symbol id="icon-users" viewBox="0 0 24 24">
+      <path d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/>
+    </symbol>
+    <!-- Building / Защитные сооружения -->
+    <symbol id="icon-building" viewBox="0 0 24 24">
+      <path d="M12 7V3H2V21H22V7H12ZM6 19H4V17H6V19ZM6 15H4V13H6V15ZM6 11H4V9H6V11ZM6 7H4V5H6V7ZM10 19H8V17H10V19ZM10 15H8V13H10V15ZM10 11H8V9H10V11ZM10 7H8V5H10V7ZM20 19H12V17H14V15H12V13H14V11H12V9H20V19ZM18 11H16V13H18V11ZM18 15H16V17H18V15Z"/>
+    </symbol>
+    <!-- Package / СИЗ и МТС -->
+    <symbol id="icon-package" viewBox="0 0 24 24">
+      <path d="M20 6H4V4H20V6ZM4 10H20V8H4V10ZM4 14H20V12H4V14ZM4 18H20V16H4V18Z"/>
+    </symbol>
+    <!-- Graduation / Обучение -->
+    <symbol id="icon-grad" viewBox="0 0 24 24">
+      <path d="M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18ZM12 3L1 9L12 15L21 10.09V17H23V9L12 3Z"/>
+    </symbol>
+    <!-- Clipboard / Отчётность -->
+    <symbol id="icon-clipboard" viewBox="0 0 24 24">
+      <path d="M19 3H14.82C14.4 1.84 13.3 1 12 1C10.7 1 9.6 1.84 9.18 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 3C12.55 3 13 3.45 13 4C13 4.55 12.55 5 12 5C11.45 5 11 4.55 11 4C11 3.45 11.45 3 12 3ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z"/>
+    </symbol>
+    <!-- Folder / Регламенты -->
+    <symbol id="icon-folder" viewBox="0 0 24 24">
+      <path d="M10 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/>
+    </symbol>
+    <!-- Person / RBAC -->
+    <symbol id="icon-person" viewBox="0 0 24 24">
+      <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+    </symbol>
+    <!-- Settings / Шлюзы -->
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+      <path d="M19.14 12.94C19.18 12.64 19.2 12.33 19.2 12C19.2 11.68 19.18 11.36 19.13 11.06L21.16 9.48C21.34 9.34 21.39 9.07 21.28 8.87L19.36 5.55C19.24 5.33 18.99 5.26 18.77 5.33L16.38 6.29C15.88 5.91 15.35 5.59 14.76 5.35L14.4 2.81C14.36 2.57 14.16 2.4 13.92 2.4H10.08C9.84 2.4 9.65 2.57 9.61 2.81L9.25 5.35C8.66 5.59 8.12 5.92 7.63 6.29L5.24 5.33C5.02 5.25 4.77 5.33 4.65 5.55L2.74 8.87C2.62 9.08 2.66 9.34 2.86 9.48L4.89 11.06C4.84 11.36 4.8 11.69 4.8 12C4.8 12.31 4.82 12.64 4.87 12.94L2.85 14.52C2.67 14.66 2.62 14.93 2.73 15.13L4.65 18.45C4.77 18.67 5.02 18.74 5.24 18.67L7.63 17.71C8.13 18.09 8.66 18.41 9.25 18.65L9.61 21.19C9.65 21.43 9.84 21.6 10.08 21.6H13.92C14.16 21.6 14.36 21.43 14.39 21.19L14.75 18.65C15.34 18.41 15.88 18.09 16.37 17.71L18.76 18.67C18.98 18.75 19.23 18.67 19.35 18.45L21.27 15.13C21.39 14.91 21.34 14.66 21.15 14.52L19.14 12.94ZM12 15.6C10.02 15.6 8.4 13.98 8.4 12C8.4 10.02 10.02 8.4 12 8.4C13.98 8.4 15.6 10.02 15.6 12C15.6 13.98 13.98 15.6 12 15.6Z"/>
+    </symbol>
+    <!-- Link / Шина данных -->
+    <symbol id="icon-link" viewBox="0 0 24 24">
+      <path d="M3.9 12C3.9 10.29 5.29 8.9 7 8.9H11V7H7C4.24 7 2 9.24 2 12C2 14.76 4.24 17 7 17H11V15.1H7C5.29 15.1 3.9 13.71 3.9 12ZM8 13H16V11H8V13ZM17 7H13V8.9H17C18.71 8.9 20.1 10.29 20.1 12C20.1 13.71 18.71 15.1 17 15.1H13V17H17C19.76 17 22 14.76 22 12C22 9.24 19.76 7 17 7Z"/>
+    </symbol>
+    <!-- Lock / Синхронизация СКУД -->
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8H9V6ZM18 20H6V10H18V20ZM12 17C13.1 17 14 16.1 14 15C14 13.9 13.1 13 12 13C10.9 13 10 13.9 10 15C10 16.1 10.9 17 12 17Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Top Header -->
+<div class="top-header">
+  <div class="top-header-left">
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" stroke="#1a3a6b" stroke-width="2" fill="none"/>
+      <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="#1a3a6b" opacity="0.3"/>
+      <circle cx="16" cy="16" r="4" fill="#1a3a6b"/>
+    </svg>
+    <div>
+      <div class="logo-text">АСУ ГО и ЧС Предприятия <span style="font-weight:400;font-size:12px;color:#667085;">ПАО</span></div>
+      <div class="logo-sub">«Нефтехимпром» • КВО № 07-441</div>
+    </div>
+  </div>
+
+  <div class="header-badges">
+    <div class="badge badge-green">
+      <span class="badge-dot dot-green"></span>
+      Контур К1/Г
+    </div>
+    <div class="badge badge-blue">
+      Read-only
+    </div>
+    <div class="badge">
+      <span class="badge-dot dot-green"></span> БД: 99.99%
+    </div>
+    <div class="badge">
+      <span class="badge-dot dot-green"></span> RabbitMQ: 0мс
+    </div>
+    <div class="badge">
+      <span class="badge-dot dot-green"></span> Шлюз: Активен
+    </div>
+    <div class="badge badge-red">
+      Аварийный дамп
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="user-block">
+      <div class="user-avatar">РК</div>
+      <div class="user-info">
+        <div class="user-name">Романов К. С.</div>
+        <div class="user-role">Администратор безопасности ГОЧС</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <button title="Уведомления">
+        <svg class="icon icon-lg"><use href="#icon-bell"></use></svg>
+      </button>
+      <button title="Безопасность">
+        <svg class="icon icon-lg"><use href="#icon-shield"></use></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-status">
+      <h2>
+        <svg class="icon icon-md"><use href="#icon-settings"></use></svg>
+        ГОТОВНОСТЬ: ПОЛНАЯ
+      </h2>
+      <p>Объект 1-й категории опасности химического профиля</p>
+    </div>
+
+    <div class="nav-item active">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-chart"></use></svg></span>
+      Сводный мониторинг
+      <span class="nav-badge">SU</span>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-users"></use></svg></span>
+      Формирования (НФГО / НАСФ)
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-building"></use></svg></span>
+      Защитные сооружения (ЗС ГО)
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-package"></use></svg></span>
+      Обеспеченность СИЗ и МТС
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-grad"></use></svg></span>
+      Обучение и учения
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-clipboard"></use></svg></span>
+      Отчётность в МЧС России
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-folder"></use></svg></span>
+      Регламенты и документация
+    </div>
+
+    <div class="nav-section-title">Администрирование</div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-person"></use></svg></span>
+      Управление ролями RBAC
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon"><svg class="icon icon-md"><use href="#icon-settings"></use></svg></span>
+      Шлюзы П-166 и телеметрия
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+      <span class="alert-icon">
+        <svg class="icon icon-lg" style="fill:#d97706"><use href="#icon-shield"></use></svg>
+      </span>
+      <p><strong>Включён режим системного аудитора и администратора мониторинга.</strong> Доступен сквозной мониторинг и верификация данных телеметрии, кадровой укомплектованности и каналов оповещения. Прямые модификации и ручной ввод заблокированы политикой неизменяемости логов.</p>
+      <div class="level-tag">AUDIT_SUPERVISOR / READ_ALL</div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-row">
+      <button class="action-btn">
+        <svg class="icon icon-sm"><use href="#icon-clipboard"></use></svg>
+        Журнал синхронизации 1С/HRM
+      </button>
+      <button class="action-btn">
+        <svg class="icon icon-sm"><use href="#icon-link"></use></svg>
+        Статус кэша телеметрии
+      </button>
+      <button class="action-btn">
+        <svg class="icon icon-sm"><use href="#icon-eye"></use></svg>
+        Журнал блокировок
+      </button>
+      <button class="action-btn disabled">
+        <svg class="icon icon-sm"><use href="#icon-lock"></use></svg>
+        Ручные корректировки отключены
+      </button>
+    </div>
+
+    <div class="export-row">
+      <span>Выгрузка эталона:</span>
+      <button class="export-btn">JSON</button>
+      <button class="export-btn">XML (МЧС)</button>
+      <button class="export-btn">PDF (Форма 1/ГО)</button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-card-header">
+          <span class="kpi-card-title">Штатная численность НФГО</span>
+          <svg class="icon icon-md icon-muted"><use href="#icon-clipboard"></use></svg>
+        </div>
+        <div class="kpi-value">318 <span class="kpi-sub">/ 320 чел.</span></div>
+        <div class="kpi-percent">99.4%</div>
+        <div class="kpi-tag kpi-tag-green">● Сверка с табелем: 10 мин назад</div>
+        <div class="kpi-footer">
+          <a href="#">
+            <svg class="icon icon-sm"><use href="#icon-eye"></use></svg>
+            Просмотр порогов алерта
+          </a>
+          <span>План ГОСТ-33</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-header">
+          <span class="kpi-card-title">Аттестовано в РСЧС</span>
+          <svg class="icon icon-md icon-muted"><use href="#icon-settings"></use></svg>
+        </div>
+        <div class="kpi-value">304 <span class="kpi-unit">чел.</span></div>
+        <div class="kpi-percent">95.6%</div>
+        <div class="kpi-tag kpi-tag-orange">
+          <svg class="icon icon-sm" style="fill:#d97706"><use href="#icon-warning"></use></svg>
+          14 на переаттестации (до 25.11)
+        </div>
+        <div class="kpi-footer">
+          <a href="#">Реестр аттестаций</a>
+          <span>УМЦ ГОЧС</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-header">
+          <span class="kpi-card-title">Оснащённость СИЗ и МТС</span>
+          <svg class="icon icon-md icon-muted"><use href="#icon-shield"></use></svg>
+        </div>
+        <div class="kpi-value">98.2% <span class="kpi-sub" style="font-size:12px;">по табелю</span></div>
+        <div class="kpi-tag kpi-tag-red">
+          <svg class="icon icon-sm" style="fill:#dc2626"><use href="#icon-warning"></use></svg>
+          Цех №4: недостача 6 фильтров ГП-7Б
+        </div>
+        <div class="kpi-footer">
+          <a href="#">
+            <svg class="icon icon-sm"><use href="#icon-clipboard"></use></svg>
+            Аудит ведомости СИЗ
+          </a>
+          <span>Склад №2</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-header">
+          <span class="kpi-card-title">Время сбора и готовности</span>
+          <svg class="icon icon-md icon-muted"><use href="#icon-settings"></use></svg>
+        </div>
+        <div class="kpi-value" style="font-size:28px;">Ч + 1ч 45мин</div>
+        <div class="kpi-tag kpi-tag-green">
+          <svg class="icon icon-sm" style="fill:#16a34a"><use href="#icon-check"></use></svg>
+          Норматив Ч+2:00 выдержан
+        </div>
+        <div class="kpi-footer">
+          <a href="#">Параметры норматива ГО</a>
+          <span>ГОСТ Р 22.0.02</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registry Table -->
+    <div class="table-section">
+      <div class="table-header">
+        <h3>Реестр нештатных формирований ГО (НФГО) <span class="total-badge">Всего: 8</span></h3>
+        <p>Управление расчётами, мониторинг каналов П-166 и административные корректировки</p>
+      </div>
+
+      <div class="table-filters">
+        <input type="text" class="filter-input" placeholder="Поиск по коду, цеху, ФИО командиру">
+        <select class="filter-select">
+          <option>Все цеха предприятия</option>
+        </select>
+        <select class="filter-select">
+          <option>Все статусы готовности</option>
+        </select>
+        <button class="filter-reset">
+          <svg class="icon icon-sm"><use href="#icon-refresh"></use></svg>
+          Сброс
+        </button>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Код</th>
+            <th>Наименование формирования</th>
+            <th>Командир</th>
+            <th>Цех приписки</th>
+            <th>Штат (Л/С)</th>
+            <th>Техника</th>
+            <th>Статус готовности</th>
+            <th>Канал вызова</th>
+            <th>Аудит</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="formation-code">НФГО-01</span></td>
+            <td>
+              <div class="formation-name">Пожарно-спасательная команда</div>
+              <div class="formation-desc">Табельный расчёт I категории опасности</div>
+            </td>
+            <td>
+              <div>Иванов С. В.</div>
+              <div class="formation-desc">Допуск РСЧС № 104-А</div>
+            </td>
+            <td>Цех №1 (Крекинг)</td>
+            <td><span class="staff-count">42 / 42</span></td>
+            <td><span class="tech-tag">3 АЦ-40</span></td>
+            <td><span class="status-badge status-ready">● Готово к выезду</span></td>
+            <td><span class="channel-tag"><svg class="icon icon-sm"><use href="#icon-signal"></use></svg> П-166 / Рация</span></td>
+            <td>
+              <div class="action-icons">
+                <button title="Просмотр"><svg class="icon icon-md"><use href="#icon-eye"></use></svg></button>
+                <button title="Документ"><svg class="icon icon-md"><use href="#icon-doc"></use></svg></button>
+                <span class="read-only-btn">Read-only</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="formation-code">НФГО-02</span></td>
+            <td>
+              <div class="formation-name">Звено радиационно-химической разведки</div>
+              <div class="formation-desc">Газоанализ, приборы ВПХР, ПГО-11</div>
+            </td>
+            <td>
+              <div>Павлов Д. Н.</div>
+              <div class="formation-desc">Сертификат Ростехнадзора</div>
+            </td>
+            <td>Цех №2 (Ароматика)</td>
+            <td><span class="staff-count">18 / 18</span></td>
+            <td><span class="tech-tag">1 АРС-14</span></td>
+            <td><span class="status-badge status-ready">● Готово к выезду</span></td>
+            <td><span class="channel-tag"><svg class="icon icon-sm"><use href="#icon-signal"></use></svg> П-166 / КВ-сеть</span></td>
+            <td>
+              <div class="action-icons">
+                <button title="Просмотр"><svg class="icon icon-md"><use href="#icon-eye"></use></svg></button>
+                <button title="Документ"><svg class="icon icon-md"><use href="#icon-doc"></use></svg></button>
+                <span class="read-only-btn">Read-only</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="formation-code">НФГО-03</span></td>
+            <td>
+              <div class="formation-name">Санитарная дружина первой помощи</div>
+              <div class="formation-desc alert-text">Недостача 6 фильтров ГП-7Б (Цех 4)</div>
+            </td>
+            <td>
+              <div>Климова Т. А.</div>
+              <div class="formation-desc">Врач медсанчасти</div>
+            </td>
+            <td>Цех №4 (Компрессорная)</td>
+            <td><span class="staff-count warn">22 / 24</span></td>
+            <td><span class="tech-tag">2 СМП (Газель)</span></td>
+            <td><span class="status-badge status-limited">● Ограниченно готово</span></td>
+            <td><span class="channel-tag"><svg class="icon icon-sm"><use href="#icon-signal"></use></svg> СМС / GSM</span></td>
+            <td>
+              <div class="action-icons">
+                <button title="Просмотр"><svg class="icon icon-md"><use href="#icon-eye"></use></svg></button>
+                <span class="read-only-btn">Read-only</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="formation-code">НФГО-04</span></td>
+            <td>
+              <div class="formation-name">Аварийно-техническая команда</div>
+              <div class="formation-desc">Тяжелое оборудование, локализация утечек</div>
+            </td>
+            <td>
+              <div>Сергеев М. И.</div>
+              <div class="formation-desc">Главный механик</div>
+            </td>
+            <td>Управление ремонта</td>
+            <td><span class="staff-count">54 / 54</span></td>
+            <td><span class="tech-tag">4 Спецборта</span></td>
+            <td><span class="status-badge status-training">● На учениях (Полигон №1)</span></td>
+            <td><span class="channel-tag"><svg class="icon icon-sm"><use href="#icon-signal"></use></svg> П-166 / СВЧ</span></td>
+            <td>
+              <div class="action-icons">
+                <button title="Просмотр"><svg class="icon icon-md"><use href="#icon-eye"></use></svg></button>
+                <button title="Документ"><svg class="icon icon-md"><use href="#icon-doc"></use></svg></button>
+                <span class="read-only-btn">Read-only</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="formation-code">НФГО-05</span></td>
+            <td>
+              <div class="formation-name">Группа связи и оповещения</div>
+              <div class="formation-desc">Управление сиренами С-40, громкоговорителями</div>
+            </td>
+            <td>
+              <div>Воронов А. Г.</div>
+              <div class="formation-desc">Начальник связи</div>
+            </td>
+            <td>Узел связи КВО</td>
+            <td><span class="staff-count">16 / 16</span></td>
+            <td><span class="tech-tag">1 ПУ-Связь</span></td>
+            <td><span class="status-badge status-ready">● Готово к выезду</span></td>
+            <td><span class="channel-tag"><svg class="icon icon-sm"><use href="#icon-signal"></use></svg> П-166 / Оптика</span></td>
+            <td>
+              <div class="action-icons">
+                <button title="Просмотр"><svg class="icon icon-md"><use href="#icon-eye"></use></svg></button>
+                <button title="Документ"><svg class="icon icon-md"><use href="#icon-doc"></use></svg></button>
+                <span class="read-only-btn">Read-only</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-footer">
+        <div>
+          Показано 5 из 8 формирований |
+          <svg class="icon icon-sm" style="fill:#16a34a"><use href="#icon-check"></use></svg>
+          Хеш валиден: <span class="hash">#E84F-910A-8321</span>
+        </div>
+        <div class="pagination">
+          <button>← Пред.</button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>След. →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="bottom-row">
+      <div class="bottom-card">
+        <div class="bottom-card-header">
+          <h3>
+            <svg class="icon icon-md"><use href="#icon-link"></use></svg>
+            Статус шины данных предприятия
+          </h3>
+          <span class="freq">Поллинг: 30 сек</span>
+        </div>
+
+        <div class="sys-cards">
+          <div class="sys-card">
+            <div class="status-dot"></div>
+            <div class="sys-card-title">1С:Предприятие ERP</div>
+            <div class="sys-card-desc">Кадры, табельные номера</div>
+            <div class="sys-card-status"><span class="dot"></span>Синхр: 3 мин назад</div>
+          </div>
+          <div class="sys-card">
+            <div class="status-dot"></div>
+            <div class="sys-card-title">СКУД «Интеллект»</div>
+            <div class="sys-card-desc">Турникеты проходных 1-5</div>
+            <div class="sys-card-status"><span class="dot"></span>Поток: Real-time (6с)</div>
+          </div>
+          <div class="sys-card">
+            <div class="status-dot"></div>
+            <div class="sys-card-title">АСУ Медосмотры</div>
+            <div class="sys-card-desc">Медсанчасть завода</div>
+            <div class="sys-card-status"><span class="dot"></span>Синхр: 18 мин назад</div>
+          </div>
+        </div>
+
+        <div class="bottom-note">
+          Все внешние адаптеры работают через изолированный крипто-шлюз ФСТЭК. Ошибок десериализации пакетов в очереди за последние 24 часа не зафиксировано.
+        </div>
+
+        <div class="crypto-box">
+          <span class="crypto-title">Криптомодуль:</span> <span class="crypto-val">● ГОСТ Р 34.12</span><br>
+          <span style="color:#64748b;">Серийный ключ СКЗИ: #RU-77-9941/ГОЧС</span>
+        </div>
+
+        <div class="bottom-footer" style="margin-top:14px;">
+          <span>Шлюз П-166Ц БУУП: готов к рассылке</span>
+          <a href="#">
+            <svg class="icon icon-sm"><use href="#icon-swap"></use></svg>
+            Тест шлюзовых сокетов
+          </a>
+        </div>
+      </div>
+
+      <div class="bottom-card">
+        <div class="bottom-card-header">
+          <h3>
+            <svg class="icon icon-md"><use href="#icon-lock"></use></svg>
+            Синхронизация СКУД проходных
+          </h3>
+          <span class="status-tag-online">В СЕТИ</span>
+        </div>
+
+        <div class="sync-list">
+          <div class="sync-item">
+            <span class="sync-dot green"></span>
+            <span class="sync-label">Бойцов НФГО на промплощадке:</span>
+            <span class="sync-value green">298 чел.</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-dot orange"></span>
+            <span class="sync-label">На межсменном отдыхе (доступны):</span>
+            <span class="sync-value orange">20 чел.</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-dot red"></span>
+            <span class="sync-label">На больничном / нетрудоспособность:</span>
+            <span class="sync-value red">2 чел.</span>
+          </div>
+        </div>
+
+        <button class="view-order-btn">
+          <svg class="icon icon-md"><use href="#icon-eye"></use></svg>
+          Просмотр проекта приказа (Read-only)
+        </button>
+        <div class="bottom-card-note">Автоподбор дублёров рассчитан • Модификация доступна опер. дежурному</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
