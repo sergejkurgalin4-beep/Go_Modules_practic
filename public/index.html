@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>АСУ ГО и ЧС предприятия</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="landingApp" class="landing" hidden>
+  <div class="land-strip">
+    <span>🔒 ЗАКРЫТЫЙ СЛУЖЕБНЫЙ КОНТУР КВО № 07-441 &nbsp;|&nbsp; Класс защищённости ИСПДн / АС: К1 / 1Г (ФСТЭК России)</span>
+    <span class="land-strip-right">
+      <span><i class="dot"></i>Шлюз ЕАИС МЧС России: Активен (пинг 14 мс)</span>
+      <span>🔒 ГОСТ Р 34.12-2015 (Магма)</span>
+    </span>
+  </div>
+
+  <header class="land-header">
+    <a class="land-brand" href="#about" data-jump="about">
+      <span class="land-logo">◆</span>
+      <span><b>АСУ ГОЧС «Нефтехимпром»</b>
+        <small>ПАО «Нефтехимпром» <i class="chip">Штатный режим</i> ОПО I класса опасности</small></span>
+    </a>
+    <nav class="land-nav" aria-label="Разделы главной страницы">
+      <a href="#about" data-jump="about" class="active">О системе</a>
+      <a href="#modules" data-jump="modules">Модули и реестры</a>
+      <a href="#standards" data-jump="standards">Нормативная база ГОСТ</a>
+      <a href="#procedures" data-jump="procedures">Регламенты</a>
+      <a href="#contacts" data-jump="contacts">Контакты дежурной службы</a>
+    </nav>
+    <div class="land-duty"><small>Оперативный дежурный:</small><b>8 (800) 555-01-12</b></div>
+    <button class="btn btn-primary" data-open-auth>🔒 Войти в систему →</button>
+  </header>
+
+  <main class="land-main">
+    <section class="land-hero" id="about">
+      <div class="land-card">
+        <span class="land-tag">✓ Соответствует ФЗ-28 «О гражданской обороне» и ФЗ-68 «О защите населения и территорий от ЧС»</span>
+        <h1>Автоматизированная система управления гражданской обороной и защитой от ЧС</h1>
+        <p class="land-lead">Комплексная цифровая платформа ПАО «Нефтехимпром» для обеспечения непрерывной оперативной готовности, мониторинга критически важных объектов (КВО), защитных сооружений (ЗС ГО), формирования донесений в МЧС России и централизованной координации нештатных формирований НФГО и НАСФ.</p>
+        <div class="land-facts">
+          <div class="land-fact">Объект контроля<b>НПЗ-1 (ОПО I класса)</b><small class="green-text">● 5 производственных цехов</small></div>
+          <div class="land-fact">Смена ГОЧС<b>Дежурная смена № 4</b><small>◎ Ст. дежурный майор Волков</small></div>
+          <div class="land-fact">Оповещение П-166<b class="green-text">100% готовность</b><small>Самодиагностика: 10 мин назад</small></div>
+        </div>
+        <div class="land-actions">
+          <button class="btn btn-primary" data-open-auth>🔒 Войти в систему (ЕСИА / КЭП)</button>
+          <button class="btn" data-jump="procedures">▤ Ознакомиться с регламентами</button>
+        </div>
+        <p class="land-version">Версия ядра: 4.8.2-RU (Сборка ГОСТ-КВО)</p>
+      </div>
+
+      <aside class="land-card land-status">
+        <div class="land-status-head"><h2>◎ Оперативный статус КВО</h2><span class="status green">НОРМА</span></div>
+        <div class="land-status-row"><span>Радиационный фон на промплощадке:</span><b>0.11 мкЗв/ч (норма)</b></div>
+        <div class="meter"><i style="width:20%"></i></div>
+        <div class="land-status-row"><span>Газоанализаторы (ХОП, АХОВ, УВ):</span><b>64/64 в норме (ПДК 0)</b></div>
+        <div class="meter"><i style="width:100%"></i></div>
+        <div class="land-status-row"><span>Каналы связи ТСРВ и РАСЦО:</span><b>Основной + 2 Резерва</b></div>
+        <div class="meter"><i style="width:100%"></i></div>
+        <div class="land-note"><b>Комплексная проверка РАСЦО</b>Плановая техпроверка аппаратуры П-166Ц и сирен С-40 назначена на 25 число текущего месяца в 10:00 МСК. Включение сирен учебное.</div>
+        <div class="land-alert"><span class="land-alert-code">505</span><span><b>Прямой канал ЕДДС района</b><small>Линия оперативного донесения ЧС</small></span><span class="status red">112 / ТЛФ 01</span></div>
+      </aside>
+    </section>
+
+    <div class="land-section-head" id="indicators">
+      <h2>◎ Сводные оперативные показатели в реальном времени</h2>
+      <small>Обновлено: 1 мин назад • Сервер синхронизации ЦУКС</small>
+    </div>
+    <section class="land-kpis">
+      <article class="land-card land-kpi">
+        <div class="land-kpi-title">Готовность каналов связи <span>◉</span></div>
+        <strong>100%</strong>
+        <p class="green-text">✓ Все тракты передачи сигналов активны</p>
+      </article>
+      <article class="land-card land-kpi">
+        <div class="land-kpi-title">ЗС ГО на контроле <span>◇</span></div>
+        <strong>18 <small>сооружений</small></strong>
+        <p class="green-text">✓ 100% вместимости рабочей смены</p>
+      </article>
+      <article class="land-card land-kpi">
+        <div class="land-kpi-title">Формирования НФГО / НАСФ <span>♧</span></div>
+        <strong>14 <small>команд</small></strong>
+        <p class="green-text">✓ 320 чел. л/с аттестованы в РСЧЕ</p>
+      </article>
+      <article class="land-card land-kpi">
+        <div class="land-kpi-title">Время доведения тревоги <span>◷</span></div>
+        <strong>&lt; 45 <small>сек</small></strong>
+        <p class="green-text">⚡ Норматив ГОСТ Р 42.4.01-2014 соблюдён</p>
+      </article>
+    </section>
+
+    <div class="land-section-head" id="modules">
+      <div><h2>Ключевые модули корпоративной системы</h2><p>Функциональные подсистемы с разграничением прав доступа согласно должностным обязанностям</p></div>
+      <small>Требуется служебный сертификат ЭЦП (ФСБ СКЗИ)</small>
+    </div>
+    <section class="land-modules">
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">◉</span><span class="status green">Модуль АРМ-01</span></div>
+        <h3>Оперативное дежурство и экстренное оповещение</h3>
+        <p>Автоматизация циркулярного вызова руководящего состава, сопряжение с комплексом П-166, адресная рассылка SMS/push и управление сиренными установками С-40 на периметре ОПО.</p>
+        <ul class="land-checks">
+          <li>Интеграция с КТС ОПО и пультом ГОЧС города</li>
+          <li>Формирование формализованных сигналов ЧС</li>
+          <li>Аудиозапись регламентных голосовых команд</li>
+        </ul>
+        <div class="land-module-foot"><span>Регламент: Инструкция № 04-ГО</span><span aria-hidden="true">🔒</span></div>
+      </article>
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">◇</span><span class="status green">Модуль АРМ-02</span></div>
+        <h3>Реестр защитных сооружений (ЗС ГО)</h3>
+        <p>Электронные паспорта убежищ и укрытий, контроль ФВУ (фильтровентиляционных установок), ДЭС, герметичности дверей, запасов питьевой воды и инструментальных актов обследования.</p>
+        <ul class="land-checks">
+          <li>Учет 18 ЗС ГО (вместимость 4 200 чел.)</li>
+          <li>Сроки плановых ревизий клапанов избыт. давления</li>
+          <li>Электронные копии журналов консервации</li>
+        </ul>
+        <div class="land-module-foot"><span>СП 88.13330.2014 СНиП II-11-77*</span><span aria-hidden="true">🔒</span></div>
+      </article>
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">♧</span><span class="status green">Модуль АРМ-03</span></div>
+        <h3>Учёт формирований (НФГО / НАСФ)</h3>
+        <p>Списки личного состава аварийно-спасательных формирований, табели оснащенности спецтехникой, графики дежурств, учет прохождения медосмотров и тренировок на объектах.</p>
+        <ul class="land-checks">
+          <li>14 нештатных формирований по цехам</li>
+          <li>Экипировка, приборы разведки ВПХР и ДП-5В</li>
+          <li>Табели положенности по приказу МЧС № 999</li>
+        </ul>
+        <div class="land-module-foot"><span>Приказ МЧС России № 999 / 701</span><span aria-hidden="true">🔒</span></div>
+      </article>
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">▣</span><span class="status green">Модуль АРМ-04</span></div>
+        <h3>Складской баланс СИЗ и медпрепаратов</h3>
+        <p>Номенклатурный учет гражданских противогазов (ГП-7Б, ГП-9), респираторов, защитных костюмов Л-1, аптечек КИМГЗ и контроль предельных сроков лабораторных испытаний.</p>
+        <ul class="land-checks">
+          <li>Автоконтроль сроков поверки СИЗ органов дыхания</li>
+          <li>График освежения запасов на складах № 1, 2, 4</li>
+          <li>Электронные накладные на выдачу подразделениям</li>
+        </ul>
+        <div class="land-module-foot"><span>Приказ МЧС РФ № 543 / 285</span><span aria-hidden="true">🔒</span></div>
+      </article>
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">▤</span><span class="status green">Модуль АРМ-05</span></div>
+        <h3>Интеграция с ЕАИС МЧС и надзорная отчётность</h3>
+        <p>Прямой защищенный шлюз передачи донесений по формам 1/ЧС, 2/ЧС, 3/ЧС и 4/ЧС, план гражданской обороны предприятия и паспорта безопасности потенциально опасных объектов.</p>
+        <ul class="land-checks">
+          <li>Выгрузка сведений в ГУ МЧС России по региону</li>
+          <li>Подписание документов усиленной ЭЦП (КЭП)</li>
+          <li>Журнал предписаний Ростехнадзора и МЧС</li>
+        </ul>
+        <div class="land-module-foot"><span>Приказ МЧС России № 422</span><span aria-hidden="true">🔒</span></div>
+      </article>
+      <article class="land-card land-module">
+        <div class="land-module-top"><span class="land-icon">♙</span><span class="status green">Модуль АРМ-06</span></div>
+        <h3>Учения, тренировки и тактическая подготовка</h3>
+        <p>Планирование комплексных учений (КУ), командно-штабных учений (КШУ) и объектовых тренировок по ликвидации локальных аварийных разливов нефтепродуктов (ПЛАРН).</p>
+        <ul class="land-checks">
+          <li>Календарный план основных мероприятий на 2026 г.</li>
+          <li>Фиксация времени эвакуации персонала</li>
+          <li>Оценка готовности органов управления ГО</li>
+        </ul>
+        <div class="land-module-foot"><span>План мероприятий ПАО НХП-2026</span><span aria-hidden="true">🔒</span></div>
+      </article>
+    </section>
+
+    <section class="land-card land-memo" id="procedures">
+      <span class="land-memo-label">! Памятка для сотрудников предприятия и подрядных организаций</span>
+      <h2>Порядок действий персонала при сигнале «ВНИМАНИЕ ВСЕМ!»</h2>
+      <p class="land-lead">Единый сигнал гражданской обороны подается непрерывным звучанием электросирен, производственных гудков и громкоговорителей продолжительностью 2-3 минуты.</p>
+      <div class="land-steps">
+        <div class="land-step"><h3><span>1</span>Включить средства связи</h3><p>Немедленно включите цеховой громкоговоритель, служебную радиостанцию или портативный радиоприемник на волне 1-го канала оповещения предприятия для прослушивания экстренного сообщения оперативного дежурного.</p></div>
+        <div class="land-step"><h3><span>2</span>Безаварийная остановка</h3><p>Действуя согласно технологическому регламенту ПЛА, перевести технологические установки в режим безаварийной остановки, перекрыть задвижки сырьевых трубопроводов, обесточить второстепенные электроприемники.</p></div>
+        <div class="land-step"><h3><span>3</span>Укрытие в ЗС ГО / СИЗ</h3><p>Получить закрепленный противогаз ГП-7Б (или изолирующий аппарат ИП-4М при выбросе АХОВ), проследовать организованным шагом в назначенное по цеховому расписанию защитное сооружение ГО.</p></div>
+      </div>
+      <h3 class="land-subtitle" id="contacts">☎ Телефоны экстренных и дежурных служб ПАО «Нефтехимпром»</h3>
+      <div class="land-phones">
+        <div class="land-fact">Оперативный дежурный ГОЧС (круглосуточно)<b class="land-phone">8 (800) 555-01-12</b><small>Внутр. АТС: 11-01</small><small class="green-text">● Линия свободна</small></div>
+        <div class="land-fact">Пожарно-газоспасательная служба (ПГСС)<b class="land-phone">+7 (347) 279-99-01</b><small>Внутр. АТС: 01 / 101</small><small class="green-text">● Боевой расчет на посту</small></div>
+        <div class="land-fact">Диспетчер главного производства<b class="land-phone">+7 (347) 279-91-05</b><small>Внутр. АТС: 12-40</small><small class="green-text">● Связь ТСРВ активна</small></div>
+        <div class="land-fact">Медицинский пункт экстренной помощи<b class="land-phone">+7 (347) 279-99-03</b><small>Внутр. АТС: 03 / 103</small><small class="green-text">● Реанимационная бригада</small></div>
+      </div>
+    </section>
+
+    <section class="land-card land-standards" id="standards">
+      <div class="land-section-head land-section-head-inner">
+        <div><h2>Нормативно-правовая база и стандарты ГОСТ Р</h2><p>Действующие государственные и корпоративные стандарты, заложенные в алгоритмы АСУ ГОЧС</p></div>
+        <small>Актуализация базы: 01.10.2026</small>
+      </div>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Обозначение стандарта</th><th>Наименование регламента</th><th>Область применения в АСУ</th><th>Статус</th></tr></thead>
+        <tbody>
+          <tr><td><b class="land-code">ГОСТ Р 22.0.02-2016</b></td><td>Безопасность в чрезвычайных ситуациях. Термины и определения основных понятий</td><td class="land-muted">Единый понятийный аппарат и справочники классификатора ЧС</td><td><span class="status green">Действует</span></td></tr>
+          <tr><td><b class="land-code">ГОСТ Р 42.4.01-2014</b></td><td>Гражданская оборона. Оповещение населения. Технические средства. Требования</td><td class="land-muted">Тайминги циркулярного вызова, сопряжение с П-166Ц и сиренами С-40</td><td><span class="status green">Действует</span></td></tr>
+          <tr><td><b class="land-code">СП 88.13330.2014</b></td><td>Защитные сооружения гражданской обороны. Актуализированная редакция СНиП II-11-77*</td><td class="land-muted">Инженерные критерии оценки ЗС ГО, вентиляция ФВУ, нормы площади убежищ</td><td><span class="status green">Действует</span></td></tr>
+          <tr><td><b class="land-code">Приказ МЧС РФ № 999</b></td><td>Порядок создания нештатных формирований по обеспечению выполнения мероприятий по ГО</td><td class="land-muted">Табели положенности техники и экипировки НФГО цехов предприятия</td><td><span class="status green">Действует</span></td></tr>
+          <tr><td><b class="land-code">ГОСТ Р 34.12-2015</b></td><td>Информационная технология. Криптографическая защита информации. Блочные шифры</td><td class="land-muted">Шифрование телеметрических каналов связи с ЦУКС МЧС России</td><td><span class="status green">Действует</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <footer class="land-footer">
+    <div class="land-footer-grid">
+      <div>
+        <div class="land-footer-brand"><span class="land-logo">◆</span> АСУ ГОЧС Предприятия</div>
+        <p>Автоматизированная система управления гражданской обороной и защитой от чрезвычайных ситуаций ПАО «Нефтехимпром». Свидетельство о гос. регистрации программы для ЭВМ № 2023661412.</p>
+        <p>Аттестат соответствия ФСТЭК России № СЗИ-77-2024-КВО.</p>
+      </div>
+      <div>
+        <h4>Нормативно-справочная база</h4>
+        <p>Федеральный закон № 28-ФЗ «О ГО»</p>
+        <p>Федеральный закон № 68-ФЗ «О защите от ЧС»</p>
+        <p>ГОСТ Р 22.0.02-2016 (Безопасность ЧС)</p>
+        <p>СП 88.13330.2014 (Защитные сооружения)</p>
+        <p>Приказы МЧС России № 543, 999, 701</p>
+      </div>
+      <div>
+        <h4>Служба ГО и ЧС предприятия</h4>
+        <p>Штаб ГОЧС: Корпус заводоуправления, каб. 114</p>
+        <p>Круглосуточный пост дежурного: тлф 8 (800) 555-01-12</p>
+        <p>Техподдержка АСУ: support-gochs@neftekhimprom.ru</p>
+        <p>Шлюз ЕАИС МЧС: eais-mchs.gateway.intranet</p>
+        <p>Криптографическая защита: СКЗИ «КриптоПро CSP» 5.0</p>
+      </div>
+      <div class="land-footer-auth">
+        <b>⚿ Авторизованный доступ</b>
+        <p>Вход в оперативные подсистемы разрешен только уполномоченным должностным лицам по квалифицированной электронной подписи (КЭП).</p>
+        <button class="btn btn-primary btn-block" data-open-auth="kep">→ Панель авторизации</button>
+      </div>
+    </div>
+    <div class="land-legal">
+      <span>© 2026 ПАО «Нефтехимпром». Все права защищены. Служебная информация ограниченного распространения.</span>
+      <span>Политика ИБ и конфиденциальности &nbsp;•&nbsp; Регламент эксплуатации КИС &nbsp;•&nbsp; <b class="green-text"><i class="dot"></i>Контур ГОЧС: Штатно</b></span>
+    </div>
+  </footer>
+</div>
+
+<dialog id="authDialog" class="auth" aria-labelledby="authTitle">
+  <div class="auth-head">
+    <span class="auth-logo">◇</span>
+    <div>
+      <h2 id="authTitle">Авторизация в АСУ ГО и ЧС <span class="auth-tag">ЭКС-1</span></h2>
+      <p>ПАО «Нефтехимпром» • Защищённый ведомственный контур КВО № 07-441 • ФСТЭК К1 / 1Г</p>
+    </div>
+    <button class="auth-close" type="button" data-close-auth aria-label="Закрыть окно">✕</button>
+  </div>
+
+  <div class="auth-tabs" role="tablist">
+    <button type="button" role="tab" id="tabPassword" aria-controls="panelPassword" aria-selected="true" data-auth-tab="password">▣ Логин и пароль / ЕСИА</button>
+    <button type="button" role="tab" id="tabKep" aria-controls="panelKep" aria-selected="false" data-auth-tab="kep">✎ Электронная подпись (КЭП / ГОСТ)</button>
+  </div>
+
+  <form class="auth-panel" id="panelPassword" role="tabpanel" aria-labelledby="tabPassword" data-auth-panel="password" data-auth-form="password">
+    <div class="auth-strip"><span><i class="dot"></i> Токен: <b>Рутокен ЭЦП 3.0 (USB-порт #2)</b></span><span class="auth-pill">ГОСТ Р 34.10-2012</span></div>
+
+    <div class="auth-field">
+      <label for="loginRole">Профиль доступа / регламентная роль</label>
+      <div class="auth-input">
+        <select id="loginRole" name="role" required>
+          <option value="head">Руководитель / зам. по ГОЧС (надзор и контроль)</option>
+          <option value="hq" selected>Ответственный за ГО (Начальник штаба ГОЧС)</option>
+          <option value="commander">Командир звена (отметки по своему звену)</option>
+          <option value="admin">Администратор ГО (SU / ROOT)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="auth-field">
+      <label for="loginId">Идентификатор сотрудника</label>
+      <div class="auth-input"><span aria-hidden="true">♙</span>
+        <input id="loginId" name="identifier" type="text" autocomplete="username" placeholder="СНИЛС или корпоративный логин" required>
+      </div>
+    </div>
+
+    <div class="auth-field">
+      <label for="loginSecret">Пароль защищённого контура</label>
+      <div class="auth-input"><span aria-hidden="true">🔒</span>
+        <input id="loginSecret" name="secret" type="password" autocomplete="current-password" placeholder="Введите служебный пароль" required>
+        <button class="auth-eye" type="button" data-toggle-secret aria-label="Показать или скрыть пароль">◉</button>
+      </div>
+    </div>
+
+    <div class="auth-row">
+      <label class="auth-check"><input type="checkbox" name="remember"> Запомнить рабочую станцию (доверенный узел ЭКС)</label>
+      <button class="auth-link" type="button" data-auth-info="Для восстановления доступа обратитесь в службу ИБ: support-gochs@neftekhimprom.ru">Забыли пароль или токен?</button>
+    </div>
+
+    <p class="auth-message" role="alert" aria-live="polite" hidden></p>
+
+    <button class="btn btn-primary btn-block" type="submit">→ Войти в систему</button>
+    <button class="btn btn-soft btn-block" type="button" data-auth-info="Вход через ЕСИА (Госуслуги) будет доступен после подключения шлюза на стороне сервера.">◎ Войти через ЕСИА (Госуслуги)</button>
+
+    <p class="auth-warning"><b>Внимание:</b> вход разрешён только уполномоченным лицам. Все действия и сессии протоколируются в соответствии с приказом ФСТЭК России № 17 / 21.</p>
+    <div class="auth-foot"><span>Криптопровайдер VIPNet / CryptoPro CSP 5.0 готов к работе</span><b class="green-text"><i class="dot"></i>Защищено</b></div>
+  </form>
+
+  <form class="auth-panel" id="panelKep" role="tabpanel" aria-labelledby="tabKep" data-auth-panel="kep" data-auth-form="kep" hidden>
+    <input type="hidden" name="tokenSerial" value="38291048-A">
+    <div class="auth-section-title"><b>Ключевой носитель (токен / криптоконтейнер)</b>
+      <button class="auth-link" type="button" data-auth-info="Список устройств обновлён: подключён 1 носитель.">↻ Обновить устройства</button></div>
+    <div class="token-list">
+      <div class="token-card active"><b>⚿ Рутокен ЭЦП 3.0 <i class="dot"></i></b><small>S/N 38291048-A (USB #2)</small><span>ГОСТ Р 34.10-2012 <em>АКТИВЕН</em></span></div>
+      <div class="token-card disabled"><b>▤ JaCarta-2 PRO / Реестр</b><small>Готов к подключению</small><span>Облачная КЭП / ФНС <em>—</em></span></div>
+    </div>
+
+    <div class="auth-section-title"><b>Сертификат электронной подписи</b><span class="status green">Действителен</span></div>
+    <div class="cert-card">
+      <b>⛨ Воронов Сергей Михайлович</b>
+      <p>Заместитель генерального директора по безопасности и ГОЧС</p>
+      <dl>
+        <dt>Организация:</dt><dd>ПАО «Нефтехимпром» (ИНН 7701234567)</dd>
+        <dt>Издатель (УЦ):</dt><dd>АО «Аналитический Центр» – Минцифры России</dd>
+        <dt>Срок действия:</dt><dd><b>15.01.2025 — 15.04.2026</b></dd>
+        <dt>Отпечаток:</dt><dd class="mono">4B 8A F2 C1 90 23 E4 18 72 00 11 3D A8 5F 20 9C</dd>
+      </dl>
+    </div>
+
+    <div class="auth-strip"><span>▣ Роль в контуре: <b>Руководитель / зам. по ГОЧС</b></span><span class="auth-pill">по СНИЛС</span></div>
+
+    <div class="auth-field">
+      <div class="auth-section-title"><label for="kepPin"><b>PIN-код ключевого носителя (Рутокен)</b></label><span>Осталось попыток: <b id="pinAttempts">3</b></span></div>
+      <div class="auth-input"><span aria-hidden="true">🔒</span>
+        <input id="kepPin" name="secret" type="password" autocomplete="off" placeholder="Введите PIN-код носителя (по умолч. 12345678)" required>
+        <button class="auth-eye" type="button" data-toggle-secret aria-label="Показать или скрыть PIN-код">◉</button>
+      </div>
+    </div>
+
+    <p class="auth-message" role="alert" aria-live="polite" hidden></p>
+
+    <button class="btn btn-primary btn-block" type="submit">✎ Подписать сертификатом и войти</button>
+    <button class="btn btn-soft btn-block" type="button" data-auth-info="Статус сертификата в УЦ (OCSP): действителен, не отозван.">◎ Проверить статус сертификата в УЦ (OCSP)</button>
+
+    <p class="auth-warning"><b>Внимание:</b> вход разрешён только уполномоченным лицам. Все действия и сессии протоколируются в соответствии с приказом ФСТЭК России № 17 / 21.</p>
+    <div class="auth-foot"><span>Криптопровайдер: CryptoPro CSP 5.0 (ГОСТ Р 34.12-2015) • Плагин CAdES готов к работе</span><b class="green-text"><i class="dot"></i>Защищено</b></div>
+  </form>
+</dialog>
+
+<div id="adminApp" hidden>
+  <header class="topbar">
+    <a class="brand" href="#" data-admin-tab="documents">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">АСУ ГО и ЧС<br><b>Предприятия</b></span>
+    </a>
+
+    <div class="company-name">ПАО «Нефтехимпром»</div>
+
+    <span class="top-label label-red">РЕЖИМ: НАДЗОР И КОНТРОЛЬ<br>(READ-ONLY)</span>
+    <span class="top-label label-green">ЕАИС МЧС РФ Онлайн<br>(ГОСТ-Р)</span>
+
+    <div class="top-actions">
+      <button class="top-button">⇩ Выгрузить архив томов ГО<br>(ZIP/PDF)</button>
+      <button class="top-button">▤ Журнал ревизий и<br>согласования</button>
+      <button class="icon-button" aria-label="Уведомления">♧</button>
+      <button class="icon-button" aria-label="Справка">?</button>
+      <button class="user-mini" data-admin-tab="profile" title="Личный кабинет должностного лица">
+        <span class="initials" data-bind="user.initials">ВВ</span>
+        <span><b data-bind="user.shortName">В. В. Воронов</b><small data-bind="user.shortPosition">Зам. ген. директора по ГОЧС</small></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="object-status">
+        <b>✓</b>
+        <span><b>Готовность: полная</b><small>Объект 1-й категории опасности</small></span>
+      </div>
+
+      <nav class="side-nav">
+        <button data-admin-tab="monitoring"><span>▦</span>Сводный мониторинг</button>
+        <button data-admin-tab="formations"><span>♧</span>Формирования (НФГО / НАСФ)</button>
+        <button data-admin-tab="shelters"><span>◇</span>Защитные сооружения (ЗС ГО)</button>
+        <button data-admin-tab="ppe"><span>▣</span>Обеспеченность СИЗ и МТС</button>
+        <button data-admin-tab="training"><span>♙</span>Обучение и учения</button>
+        <button data-admin-tab="reports"><span>▤</span>Отчётность в МЧС России</button>
+        <button data-admin-tab="documents" class="active"><span>▧</span>Регламенты и документация</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span>⚙　Нормативные акты ГОСТ</span>
+        <span>⚙　Системные параметры</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        Главный пульт　/　<span id="breadcrumbSection">Нормативно-правовой контур</span>　/　
+        <b id="breadcrumbTitle">Регламенты и документация</b>
+      </div>
+
+      <section class="admin-view" data-view="documents">
+        <div class="banner">
+          <div class="banner-icon">▣</div>
+          <div class="banner-copy">
+            <h1>Электронный депозитарий нормативно-правовых актов и регламентов ГОЧС</h1>
+            <p>Электронный депозитарий документов, инструкций и регламентов ГОЧС предприятия. Уровень доступа: высший надзорный контроль (Read-Only).</p>
+            <p>Все документы подписаны УКЭП руководства и зарегистрированы в электронном архиве предприятия.</p>
+          </div>
+          <span class="readonly-badge">Контрольный надзор (Read-Only)</span>
+        </div>
+
+        <div class="stats">
+          <article class="stat-card">
+            <div class="stat-title">Всего документов в фонде <span>▱</span></div>
+            <strong class="stat-number">48</strong>
+            <p>Регламентов и локальных нормативных актов</p>
+            <div class="stat-foot"><b>100% учтено</b><span>Архив за 5 лет</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-title">Комплектность Плана ГО <span class="green-text">✓</span></div>
+            <strong class="stat-number green-text">100%</strong>
+            <p>Все 3 тома согласованы с ГУ МЧС России</p>
+            <div class="stat-foot"><b>Замечаний: 0</b><span>Бессрочно</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-title">Актуальность документации <span class="green-text">✓</span></div>
+            <strong class="stat-number">100%</strong>
+            <p>Документов с истёкшим сроком действия нет</p>
+            <div class="stat-foot"><b>Просрочек: 0</b><span>Штатно</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-title">Ближайшая плановая ревизия <span class="orange-text">◷</span></div>
+            <strong class="stat-number orange-text">4 мес.</strong>
+            <p>Инструкция персонала при авариях на ХОО</p>
+            <div class="stat-foot orange-text"><b>Срок: ноябрь 2026 г.</b><span>Контроль КЧС</span></div>
+          </article>
+        </div>
+
+        <div class="search-row">
+          <label class="search-box">
+            <span>⌕</span>
+            <input type="search" placeholder="Поиск по наименованию документа, шифру ГОСТ, номеру приказа или УКЭП...">
+          </label>
+          <label class="filter">☷ Фильтр реестра:
+            <select><option>Все разделы фонда (4)</option></select>
+          </label>
+          <label class="filter">
+            <select><option>Все статусы согласования</option></select>
+          </label>
+        </div>
+
+        <section class="registry">
+          <div class="registry-head">
+            <b>▤ Раздел 1: Планирующие документы гражданской обороны (План ГО объекта 2024–2028 гг.)</b>
+            <span>ГРИФ: ДСП　3 тома согласовано</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr>
+                <th>Шифр</th><th>Наименование тома и содержание</th><th>Статус утверждения</th>
+                <th>Подпись УКЭП / ревизия</th><th>Срок действия</th><th>Надзорные действия</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td>ГО-Т.1</td>
+                  <td><b>Том I. Краткая оценка возможной обстановки при возникновении ЧС и ведении ГО</b><small>Перечень рисков, зон поражения и мероприятий по защите</small></td>
+                  <td><span class="status green">Согласован МЧС</span></td>
+                  <td>Ген. директор / МЧС<small>15.01.2026 · 11:20</small></td>
+                  <td>До 2028 г.</td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+                <tr>
+                  <td>ГО-Т.2</td>
+                  <td><b>Том II. Планирование мероприятий по гражданской обороне при возникновении ЧС</b><small>План ГО объекта, расчёты сил, календарный план мероприятий</small></td>
+                  <td><span class="status green">Согласован МЧС</span></td>
+                  <td>Ген. директор / МЧС<small>15.01.2026 · 11:22</small></td>
+                  <td>До 2028 г.</td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+                <tr>
+                  <td>ГО-Т.3</td>
+                  <td><b>Том III. Приложения и расчётно-пояснительная записка</b><small>Схемы оповещения и связи, планы эвакуации, приложения</small></td>
+                  <td><span class="status green">Утверждён приказом</span></td>
+                  <td>Зам. ген. по ГОЧС<small>18.01.2026 · 16:45</small></td>
+                  <td>До 2028 г.</td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="registry">
+          <div class="registry-head">
+            <b>▤ Раздел 2: Приказы и распоряжения генерального директора предприятия</b>
+            <span>Действующие локальные акты</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr>
+                <th>Номер акта</th><th>Тема нормативного документа</th><th>Дата подписания</th>
+                <th>Подписант / УКЭП</th><th>Ревизия</th><th>Надзорные действия</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><b>Приказ №142</b></td>
+                  <td><b>О создании нештатных аварийно-спасательных формирований на 2026 год</b><small>Утверждённый состав, численность и табельное оснащение МТС</small></td>
+                  <td>12.01.2026</td>
+                  <td>Ген. директор<small>Сертификат действителен</small></td>
+                  <td><span class="status green">Актуален</span></td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+                <tr>
+                  <td><b>Приказ №88</b></td>
+                  <td><b>Об организации круглосуточного оповещения дежурных служб</b><small>График дежурств, порядок оповещения руководящего состава</small></td>
+                  <td>22.02.2026</td>
+                  <td>Ген. директор<small>Сертификат действителен</small></td>
+                  <td><span class="status green">Актуален</span></td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="registry">
+          <div class="registry-head">
+            <b>▤ Раздел 3: Инструкции и регламенты дежурных смен и ответственных лиц</b>
+            <span>Эксплуатационная база ГО и ЧС</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr>
+                <th>Индекс</th><th>Наименование регламента / инструкции</th><th>Объект применения</th>
+                <th>Утверждение</th><th>Плановая ревизия</th><th>Надзорные действия</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td>РЕГ-ЛСО-04</td>
+                  <td><b>Регламент передачи сигналов экстренного оповещения дежурным диспетчером</b><small>Порядок запуска сирен, передачи сообщений и подтверждения получения</small></td>
+                  <td>Диспетчерская цеха №1</td><td>Утв. зам. по ГОЧС</td><td>Март 2025 г.</td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+                <tr>
+                  <td>ИНСТ-ЗС-01</td>
+                  <td><b>Инструкция коменданта убежища защитного сооружения ГО</b><small>Порядок подготовки и приёма укрываемых</small></td>
+                  <td>ЗС ГО Инв. №1402</td><td>Утв. зам. по ГОЧС</td><td>Февраль 2026 г.</td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+                <tr class="attention-row">
+                  <td>ИНСТ-ХОО-09</td>
+                  <td><b>Инструкция для дежурного персонала при авариях на ХОО</b><small>Действия персонала по локализации и ликвидации аварии</small></td>
+                  <td>Химический цех</td><td>Утв. ген. директор<small>15.11.2021</small></td>
+                  <td><span class="status orange">Через 4 мес.</span></td>
+                  <td><button class="doc-button">◉ Просмотр PDF</button> <button class="doc-button">ЭЦП</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="registry">
+          <div class="registry-head">
+            <b>▤ Раздел 4: Нормативная база ГОСТ, федеральное законодательство и приказы МЧС России</b>
+            <span class="status green">Синхронизировано</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr>
+                <th>Идентификатор</th><th>Официальное наименование акта</th><th>Регулятор</th>
+                <th>Юр. статус</th><th>Редакция</th><th>Надзорные действия</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td>28-ФЗ</td><td><b>Федеральный закон «О гражданской обороне»</b></td>
+                  <td>Государственная Дума РФ</td><td><span class="status green">Действует</span></td><td>08.08.2026</td>
+                  <td><button class="doc-button">↗ Текст акта (PDF)</button></td>
+                </tr>
+                <tr>
+                  <td>МЧС РФ №999</td><td><b>Порядок создания нештатных аварийно-спасательных формирований</b></td>
+                  <td>МЧС России</td><td><span class="status green">Действует</span></td><td>Ред. 2023 г.</td>
+                  <td><button class="doc-button">↗ Текст акта (PDF)</button></td>
+                </tr>
+                <tr>
+                  <td>МЧС РФ №701</td><td><b>Требования к содержанию и эксплуатации защитных сооружений ГО</b></td>
+                  <td>МЧС России</td><td><span class="status green">Действует</span></td><td>Ред. 2022 г.</td>
+                  <td><button class="doc-button">↗ Текст акта (PDF)</button></td>
+                </tr>
+                <tr>
+                  <td>ГОСТ Р 22.0.02</td><td><b>Безопасность в чрезвычайных ситуациях. Термины и определения</b></td>
+                  <td>Росстандарт</td><td><span class="status green">Национальный стандарт</span></td><td>2016 г.</td>
+                  <td><button class="doc-button">↗ Текст акта (PDF)</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="admin-view" data-view="monitoring" hidden>
+        <div class="banner"><div class="banner-icon">▦</div><div class="banner-copy">
+          <h1>Сводный мониторинг готовности ГО и ЧС</h1>
+          <p>Общая информация о готовности предприятия и его сил.</p>
+        </div><span class="readonly-badge">Доступ: просмотр</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">Общая готовность ГО</div><strong class="stat-number green-text">94.8%</strong><p>Готово к выполнению задач</p></article>
+          <article class="stat-card"><div class="stat-title">Личный состав сил ГО</div><strong class="stat-number">142 чел.</strong><p>Штат укомплектован</p></article>
+          <article class="stat-card"><div class="stat-title">Фонд защитных сооружений</div><strong class="stat-number">4 объекта</strong><p>1 850 мест</p></article>
+          <article class="stat-card"><div class="stat-title">Обеспеченность СИЗ</div><strong class="stat-number green-text">108%</strong><p>Резерв в норме</p></article>
+        </div>
+        <div class="panel"><h2>Состояние формирований</h2>
+          <div class="table-scroll"><table><thead><tr><th>Формирование</th><th>Штат</th><th>Командир</th><th>Оснащение</th><th>Сбор</th><th>Статус</th></tr></thead>
+          <tbody>
+            <tr><td>Аварийно-спасательное формирование</td><td>48 / 48</td><td>Савельев А. И.</td><td>АЦ-40, гидравлика</td><td>15 мин</td><td><span class="status green">Готово</span></td></tr>
+            <tr><td>Пост радиационно-химического наблюдения</td><td>12 / 12</td><td>Чернов О. В.</td><td>ВПХР, ДП-5В</td><td>10 мин</td><td><span class="status green">Готово</span></td></tr>
+            <tr><td>Санитарная дружина</td><td>24 / 24</td><td>Орлова Т. Е.</td><td>Носилки, КИМГЗ</td><td>12 мин</td><td><span class="status green">Готово</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-view" data-view="formations" hidden>
+        <div class="banner"><div class="banner-icon">♧</div><div class="banner-copy"><h1>Формирования ГО и НАСФ</h1><p>Реестр личного состава, оснащения и аттестации командиров.</p></div><span class="readonly-badge">Режим просмотра</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">Всего формирований</div><strong class="stat-number">5</strong><p>142 человека</p></article>
+          <article class="stat-card"><div class="stat-title">Аттестация командиров</div><strong class="stat-number green-text">100%</strong><p>5 из 5 аттестованы</p></article>
+          <article class="stat-card"><div class="stat-title">Техническая оснащённость</div><strong class="stat-number">98.2%</strong><p>По табельному оснащению</p></article>
+          <article class="stat-card"><div class="stat-title">Средний норматив сбора</div><strong class="stat-number">14 мин</strong><p>В пределах норматива</p></article>
+        </div>
+        <div class="panel"><h2>Сводный реестр формирований объекта</h2>
+          <div class="table-scroll"><table><thead><tr><th>Формирование</th><th>Тип</th><th>Состав</th><th>Командир</th><th>Оснащение</th><th>Аттестация</th><th>Статус</th></tr></thead><tbody>
+            <tr><td>Звено пожаротушения и АСФ</td><td>НАСФ</td><td>48 чел.</td><td>Савельев А. И.</td><td>АЦ-40, гидравлика</td><td>До 12.2026</td><td><span class="status green">Полная готовность</span></td></tr>
+            <tr><td>Пост РХБ-наблюдения</td><td>НФГО</td><td>12 чел.</td><td>Чернов О. В.</td><td>ВПХР, ДП-5В</td><td>До 08.2026</td><td><span class="status green">Полная готовность</span></td></tr>
+            <tr><td>Звено инженерной разведки</td><td>НАСФ</td><td>16 чел.</td><td>Григорьев С. П.</td><td>Мотопомпы, ШАНЦ</td><td>До 03.2026</td><td><span class="status green">Полная готовность</span></td></tr>
+            <tr><td>Санитарная дружина</td><td>НФГО</td><td>24 чел.</td><td>Орлова Т. Е.</td><td>Носилки, КИМГЗ</td><td>До 11.2026</td><td><span class="status green">Полная готовность</span></td></tr>
+            <tr><td>Добровольная пожарная дружина</td><td>НФГО</td><td>42 чел.</td><td>Ильин Р. К.</td><td>Мотопомпы, гидранты</td><td>До 04.2026</td><td><span class="status orange">Проверить аттестацию</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-view" data-view="shelters" hidden>
+        <div class="banner"><div class="banner-icon">◇</div><div class="banner-copy"><h1>Защитные сооружения гражданской обороны</h1><p>Реестр убежищ, вместимость и состояние инженерных систем.</p></div><span class="readonly-badge">Данные контроля</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">Всего убежищ</div><strong class="stat-number">4</strong><p>1 850 мест</p></article>
+          <article class="stat-card"><div class="stat-title">Готовность сооружений</div><strong class="stat-number green-text">Готовы</strong><p>К приёму укрываемых</p></article>
+          <article class="stat-card"><div class="stat-title">Системы ФВУ</div><strong class="stat-number">100%</strong><p>Ресурс фильтров в норме</p></article>
+          <article class="stat-card"><div class="stat-title">Автономность</div><strong class="stat-number">48 часов</strong><p>Резерв воды и ДЭС</p></article>
+        </div>
+        <div class="panel"><h2>Реестр защитных сооружений</h2>
+          <div class="table-scroll"><table><thead><tr><th>Объект</th><th>Класс</th><th>Вместимость</th><th>Локация</th><th>Оснащение</th><th>Подпор</th><th>Статус</th></tr></thead><tbody>
+            <tr><td>ЗС №01<small>Инв. №008472-ГО</small></td><td>А-II</td><td>600 чел.</td><td>Административный корпус</td><td>ФВУ-3, ДЭС 100 кВт</td><td>102 Па</td><td><span class="status green">Готово к приёму</span></td></tr>
+            <tr><td>ЗС №02<small>Инв. №008473-ГО</small></td><td>А-II</td><td>450 чел.</td><td>Цех переработки №2</td><td>ФВУ-2, ДЭС 75 кВт</td><td>98 Па</td><td><span class="status green">Готово к приёму</span></td></tr>
+            <tr><td>ЗС №03<small>Инв. №008474-ГО</small></td><td>А-IV</td><td>400 чел.</td><td>Товарно-сырьевой парк</td><td>ФВУ-2, ДЭС 60 кВт</td><td>95 Па</td><td><span class="status green">Готово к приёму</span></td></tr>
+            <tr><td>ЗС №04<small>Инв. №008481-ГО</small></td><td>А-IV</td><td>400 чел.</td><td>Энергокомплекс ТЭЦ</td><td>ФВУ-2, ДЭС 60 кВт</td><td>105 Па</td><td><span class="status green">Готово к приёму</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-view" data-view="ppe" hidden>
+        <div class="banner"><div class="banner-icon">▣</div><div class="banner-copy"><h1>Обеспеченность СИЗ и материально-техническими средствами</h1><p>Сводка складского баланса и обеспеченности формирований.</p></div><span class="readonly-badge">Складской баланс</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">Обеспеченность СИЗ</div><strong class="stat-number green-text">108%</strong><p>Резерв в пределах нормы</p></article>
+          <article class="stat-card"><div class="stat-title">Комплекты СИЗ</div><strong class="stat-number">1 950</strong><p>На учёте предприятия</p></article>
+          <article class="stat-card"><div class="stat-title">Резерв ГСМ</div><strong class="stat-number">12.5 т</strong><p>Запас сформирован</p></article>
+          <article class="stat-card"><div class="stat-title">Медицинское имущество</div><strong class="stat-number">1 950</strong><p>Комплектов</p></article>
+        </div>
+        <div class="panel"><h2>Складской баланс</h2><div class="quick-grid">
+          <div class="quick-card"><b>Средства защиты органов дыхания</b><strong>108%</strong><small>Обеспеченность выше нормы</small></div>
+          <div class="quick-card"><b>Защита кожи</b><strong>100%</strong><small>Комплектность подтверждена</small></div>
+          <div class="quick-card"><b>Медицинские средства</b><strong>1 950</strong><small>Комплектов на складе</small></div>
+        </div></div>
+      </section>
+
+      <section class="admin-view" data-view="training" hidden>
+        <div class="banner"><div class="banner-icon">♙</div><div class="banner-copy"><h1>Обучение и учения</h1><p>План подготовки персонала и учёт результатов занятий.</p></div><span class="readonly-badge">Учебный контур</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">План занятий</div><strong class="stat-number">24</strong><p>Мероприятия на год</p></article>
+          <article class="stat-card"><div class="stat-title">Проведено</div><strong class="stat-number green-text">18</strong><p>По графику подготовки</p></article>
+          <article class="stat-card"><div class="stat-title">Личный состав обучен</div><strong class="stat-number">94%</strong><p>По списочному составу</p></article>
+          <article class="stat-card"><div class="stat-title">Ближайшее учение</div><strong class="stat-number">21.10</strong><p>Использование СИЗОД</p></article>
+        </div>
+        <div class="panel"><h2>Ближайшие занятия и учения</h2>
+          <div class="table-scroll"><table><thead><tr><th>Тема</th><th>Дата</th><th>Продолжительность</th><th>Ответственный</th><th>Статус</th></tr></thead><tbody>
+            <tr><td>Первая помощь пострадавшим</td><td>07.10.2026</td><td>2 часа</td><td>Орлов А. С.</td><td><span class="status green">Проведено</span></td></tr>
+            <tr><td>Действия при пожаре на ОПО</td><td>14.10.2026</td><td>4 часа</td><td>Орлов А. С.</td><td><span class="status green">Проведено</span></td></tr>
+            <tr><td>Использование средств индивидуальной защиты</td><td>21.10.2026</td><td>2 часа</td><td>Орлов А. С.</td><td><span class="status blue">Запланировано</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-view" data-view="reports" hidden>
+        <div class="banner"><div class="banner-icon">▤</div><div class="banner-copy"><h1>Отчётность в МЧС России</h1><p>Статус подготовки и отправки отчётных документов.</p></div><span class="readonly-badge">Электронный архив</span></div>
+        <div class="stats">
+          <article class="stat-card"><div class="stat-title">Отчётов в реестре</div><strong class="stat-number">12</strong><p>За текущий отчётный период</p></article>
+          <article class="stat-card"><div class="stat-title">Принято ведомством</div><strong class="stat-number green-text">11</strong><p>Квитанции получены</p></article>
+          <article class="stat-card"><div class="stat-title">На согласовании</div><strong class="stat-number orange-text">1</strong><p>Ожидается подтверждение</p></article>
+          <article class="stat-card"><div class="stat-title">Просроченных</div><strong class="stat-number green-text">0</strong><p>Сроки соблюдены</p></article>
+        </div>
+        <div class="panel"><h2>Журнал отчётности</h2>
+          <div class="table-scroll"><table><thead><tr><th>Документ</th><th>Отчётный период</th><th>Дата отправки</th><th>Канал</th><th>Статус</th></tr></thead><tbody>
+            <tr><td>Сведения о готовности сил ГО</td><td>III квартал 2026</td><td>10.10.2026</td><td>ЕАИС МЧС РФ</td><td><span class="status green">Принят</span></td></tr>
+            <tr><td>Отчёт о состоянии защитных сооружений</td><td>III квартал 2026</td><td>12.10.2026</td><td>ЕАИС МЧС РФ</td><td><span class="status green">Принят</span></td></tr>
+            <tr><td>Сводка по обеспеченности СИЗ</td><td>III квартал 2026</td><td>18.10.2026</td><td>ЕАИС МЧС РФ</td><td><span class="status orange">На согласовании</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-view" data-view="profile" hidden>
+        <div class="profile-ids">
+          <span class="top-label label-green">КЛАСС ЗАЩИТЫ АС: ФСТЭК 1Г / К1 (ПДн УЗ-1)</span>
+          <span class="top-label label-red">ID: <span data-bind="user.employeeCode">EMP-00CHS-00418</span></span>
+        </div>
+
+        <div class="panel profile-head">
+          <div class="profile-avatar" data-bind="user.initials">ВС</div>
+          <div class="profile-id">
+            <h1><span data-bind="user.fullName">Воронов Сергей Михайлович</span> <span class="status green">ДЕЙСТВУЮЩИЙ СОТРУДНИК</span></h1>
+            <p data-bind="user.position">Заместитель генерального директора по промышленной безопасности, охране труда и ГОЧС</p>
+            <div class="profile-tags">
+              <span class="status red">Уровень допуска: <span data-bind="user.clearance">Сов. Секретно (Форма № 2)</span></span>
+              <span class="status blue">Роль RBAC: <span data-bind="user.roleLabel">Руководитель / зам. по ГОЧС</span></span>
+              <span class="status blue">АРМ: <span data-bind="user.workstation">WS-SEC-042 (Сертифицированный контур)</span></span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="top-button">⚿ Сменить пароль КЭП</button>
+            <button class="confirm-button">⇩ Выгрузить справку-объектную (PDF)</button>
+            <button class="top-button danger" data-logout="all">⏻ Завершить все сеансы</button>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <div class="profile-col">
+            <section class="panel">
+              <div class="panel-head"><h2>1. Персональные и ведомственные служебные данные</h2><small class="muted-text">СЭД-Интеграция активна</small></div>
+              <div class="kv">
+                <div><small>Страховой номер (СНИЛС)</small><b data-bind="user.snils">148-293-810 94</b></div>
+                <div><small>Табельный номер сотрудника</small><b data-bind="user.personnelNumber">ТН-000412-НХП</b></div>
+                <div><small>Служебный защищённый телефон (АТС-ГО)</small><b data-bind="user.phone">+7 (495) 829-10-08 (доб. 41-82)</b></div>
+                <div><small>Ведомственная почта спецконтура</small><b data-bind="user.email">voronov_sm@sec.neftekhimprom.ru</b></div>
+                <div class="wide"><small>Структурное подразделение предприятия</small><b data-bind="user.department">Дирекция по комплексной безопасности, гражданской обороне и чрезвычайным ситуациям</b></div>
+                <div class="wide kv-inline"><span><small>Основание возложения полномочий (Приказ)</small><b data-bind="user.appointmentOrder">Приказ Генерального директора ПАО «Нефтехимпром» № 118-к/ОД от 14.02.2021 г.</b></span><span class="status blue">Бессрочно</span></div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head"><h2>2. Зона ответственности и курируемые объекты ГОЧС</h2><span class="status blue">КВО 07-441</span></div>
+              <div class="object-card">
+                <span class="object-icon">▣</span>
+                <div><b>Нефтеперерабатывающий завод № 1 (ПАО «Нефтехимпром»)</b> <span class="status orange">I КЛАСС ОПАСНОСТИ</span>
+                  <small>Территория: 142 Га. Персонал дежурной смены: 680 чел. Степень категорирования по ГО: Особая категория.</small></div>
+              </div>
+              <div class="profile-forces">
+                <div class="force-box"><small>СИЛЫ ГО И ЧС (НФГО / НАСФ)</small><b><span class="force-num">5</span> формирований (142 чел. личного состава)</b><div class="force-foot"><span>Готовность техники: 98%</span><span class="status green">Аттестованы</span></div></div>
+                <div class="force-box"><small>ФОНД ЗС ГО (УБЕЖИЩА)</small><b><span class="force-num">4</span> сооружения (вместимость 1 200 чел.)</b><div class="force-foot"><span class="mono">Инв. № 908472-ГО – № 908481-ГО</span><span class="status green">Готовы к приёму</span></div></div>
+              </div>
+              <div class="delegation" data-requires="delegations.0">
+                <small>ДЕЛЕГИРОВАННОЕ ПРАВО УТВЕРЖДЕНИЯ И ПОДПИСАНИЯ:</small>
+                <ul id="delegationList"></ul>
+              </div>
+            </section>
+          </div>
+
+          <div class="profile-col">
+            <section class="panel" data-requires="certificate">
+              <div class="panel-head"><h2>3. Сертификат КЭП (ГОСТ Р 34.10-2012)</h2><span class="status green">ВАЛИДЕН</span></div>
+              <div class="cert-valid"><b class="green-text" data-bind="certificate.validTo" data-format="date" data-template="Действителен до {}">Действителен до 15.04.2025</b><small data-bind="certificate.daysLeft" data-template="Срок действия ключа: осталось {} дн.">Срок действия ключа: осталось 180 дней</small></div>
+              <div class="kv kv-single">
+                <div><small>Серийный номер сертификата</small><b class="mono" data-bind="certificate.serialNumber">0009 4F02 B710 4A38 901E 521C 8B20 9B13</b></div>
+                <div><small>Аккредитованный удостоверяющий центр (УЦ)</small><b data-bind="certificate.issuer">АО «Аналитический Центр» – Минцифры России (ГОСТ-Р ИК-9)</b></div>
+                <div><small>Отпечаток ключа (SHA-1 Thumbprint)</small><b class="mono" data-bind="certificate.thumbprint">7B42 A991 3C8F 1120 4493 DC00 F890 0184 EC41 7D92</b></div>
+              </div>
+              <div class="kv-inline token-line"><span><b data-bind="token.model">Рутокен ЭЦП 3.0 NFC</b><small data-bind="token.serial" data-template="S/N: {} (Аппаратный криптоключ)">S/N: 38291048-A (Аппаратный криптоключ)</small></span><span class="status blue">Подключён</span></div>
+              <div class="profile-buttons"><button class="top-button">◎ Проверить в OCSP</button><button class="top-button">✎ Тестовая подпись</button></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head"><h2>Контроль целостности рабочей станции</h2><span class="status green">НОРМА</span></div>
+              <p>Агент VIPNet Client 4.5.3 активен. База сигнатур: сегодня, 06:00</p>
+            </section>
+          </div>
+        </div>
+
+        <section class="registry">
+          <div class="registry-head">
+            <b>4. Журнал аудита доступа и сеансов (требования ФСТЭК России К1)</b>
+            <span>Всего записей в защищённом журнале: <span data-bind="audit.total">1 429</span> &nbsp; <button class="doc-button">Экспорт журнала ⇩</button></span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr>
+                <th>Время события (МСК)</th><th>Сетевой узел / IP / MAC</th><th>Способ аутентификации</th>
+                <th>Контроль СЗИ VipNet / CryptoPro</th><th>Статус сеанса</th><th>Действие</th>
+              </tr></thead>
+              <tbody id="auditBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <div class="footer">АСУ ГО и ЧС предприятия · Демонстрационный интерфейс</div>
+    </main>
+  </div>
+</div>
+
+<div id="commanderApp" data-only-role="commander" hidden>
+  <header class="commander-top">
+    <a class="brand" href="#" data-return-admin="documents">
+      <span class="brand-mark">◇</span>
+      <span class="brand-name">АСУ ГО и ЧС<br><b>Предприятия</b></span>
+    </a>
+    <span class="company-name">ПАО «Нефтехимпром»</span>
+    <span class="top-label label-red">ОПО I КЛАСС</span>
+    <span class="top-label label-orange">РЕЖИМ ОТМЕТКИ (ОГРАНИЧЕННЫЙ ВВОД)</span>
+    <span class="top-label label-green">Шлюз ЕАИС МЧС РФ: Защищён</span>
+    <div class="top-actions">
+      <button class="confirm-button">Подтвердить готовность звена</button>
+      <button class="top-button logout-button" data-logout>⏻ Выйти</button>
+      <span class="initials" data-bind="user.initials">ИР</span>
+      <span class="user-mini"><span><b data-bind="user.shortName">Ильин Р. К.</b><small data-bind="user.shortPosition">Командир звена, мастер участка №3</small></span></span>
+    </div>
+  </header>
+
+  <div class="commander-layout">
+    <aside class="commander-sidebar">
+      <div class="readiness-box">
+        <b>ГОТОВНОСТЬ ЗВЕНА: КОНТРОЛЬ СРОКА</b>
+        <small>Звено: ДПД цеха №3</small>
+        <small>Режим ГО: <span class="orange-text">Повышенная готовность</span></small>
+      </div>
+
+      <nav class="commander-nav">
+        <button class="active" data-scroll="commanderHome">Моё звено</button>
+        <button data-scroll="personnel">Личный состав</button>
+        <button data-scroll="equipment">СИЗ и имущество</button>
+        <button data-scroll="classes">Занятия и зачёты</button>
+        <button data-scroll="orders">Приказы особого периода</button>
+        <button data-scroll="shelter">Убежища и эвакуация</button>
+        <button data-return-admin="documents">Регламенты и документация</button>
+      </nav>
+
+      <div class="commander-help">
+        <b>Справка командира звена</b>
+        <span>Нормативы и порядок действий</span>
+        <span>Системные параметры</span>
+        <span>Синхронизация: 24.10.2024 11:42</span>
+      </div>
+    </aside>
+
+    <main class="commander-main" id="commanderHome">
+      <section class="commander-banner">
+        <div class="banner-icon">◇</div>
+        <div class="banner-copy">
+          <h1>Рабочий кабинет командира звена. Уровень доступа: отметки по своему звену</h1>
+          <p>Вы можете отмечать посещаемость занятий личного состава своего звена. Остальные данные доступны только для просмотра. Подписанные документы заблокированы.</p>
+        </div>
+        <span class="status green">УКЭП ВЕРИФИЦИРОВАНА</span>
+        <button class="top-button">Журнал действий</button>
+      </section>
+
+      <section class="commander-stats">
+        <article class="commander-stat"><span>ГОТОВНОСТЬ ЗВЕНА</span><strong>91%</strong><small class="green-text">● Норматив выполнен</small><div class="meter"><i style="width:91%"></i></div></article>
+        <article class="commander-stat"><span>ЛИЧНЫЙ СОСТАВ</span><strong>42 <small>чел.</small></strong><small class="green-text">● В строю 40, отпуск 1, болен 1</small><div class="meter"><i style="width:95%"></i></div></article>
+        <article class="commander-stat"><span>ЗАЧЁТ СДАН</span><strong>40 <small>из 42</small></strong><small class="orange-text">● 2 чел. без результата</small><div class="meter orange"><i style="width:80%"></i></div></article>
+        <article class="commander-stat"><span>СИЗ ВЫДАНО</span><strong>42 <small>из 42</small></strong><small class="green-text">● Комплектность подтверждена</small><div class="meter"><i style="width:100%"></i></div></article>
+        <article class="commander-stat"><span>ПРИКАЗЫ ОСОБОГО ПЕРИОДА</span><strong>2</strong><small>● 1 подписан, 1 черновик</small><div class="meter blue"><i style="width:50%"></i></div></article>
+      </section>
+
+      <div class="commander-grid">
+        <section class="commander-card" id="personnel">
+          <div class="card-heading">
+                        <h2>Личный состав звена</h2>
+            <span class="status green">ПРИСУТСТВОВАЛО: 4 / 6</span>
+          </div>
+
+          <p class="muted-note">Отметка посещаемости занятий. Показаны 6 из 42 человек.</p>
+          <div class="exercise-strip">
+            <b>Тема 4. Действия при пожаре на ОПО, 14.10.2024</b>
+          </div>
+
+          <div class="table-scroll">
+            <table class="personnel-table">
+              <thead>
+                <tr>
+                  <th>ФИО и роль в звене</th>
+                  <th>Статус</th>
+                  <th>Посещаемость</th>
+                  <th>Зачёт</th>
+                  <th>СИЗ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Ильин Р. К.</b><small>Командир звена, мастер участка №3</small></td>
+                  <td><span class="status green">Активен</span></td>
+                  <td><span class="status green">Присутствовал</span></td>
+                  <td><span class="status green">Зачёт</span></td>
+                  <td>ГП-7Б №0412, р. 3</td>
+                </tr>
+                <tr>
+                  <td><b>Соколов А. В.</b><small>Рядовой, слесарь</small></td>
+                  <td><span class="status green">Активен</span></td>
+                  <td><span class="status green">Присутствовал</span></td>
+                  <td><span class="status green">Зачёт</span></td>
+                  <td>ГП-7Б №0413, р. 2</td>
+                </tr>
+                <tr>
+                  <td><b>Белова Н. П.</b><small>Рядовой, аппаратчик</small></td>
+                  <td><span class="status green">Активна</span></td>
+                  <td><span class="status green">Присутствовала</span></td>
+                  <td><span class="status green">Зачёт</span></td>
+                  <td>ГП-7Б №0414, р. 1</td>
+                </tr>
+                <tr>
+                  <td><b>Громов Д. С.</b><small>Рядовой, электрик</small></td>
+                  <td><span class="status orange">Отпуск</span></td>
+                  <td><span class="status red">Отсутствовал</span></td>
+                  <td>—</td>
+                  <td>ГП-7Б №0415, р. 3</td>
+                </tr>
+                <tr>
+                  <td><b>Захарова М. И.</b><small>Рядовой, лаборант</small></td>
+                  <td><span class="status red">Больничный</span></td>
+                  <td><span class="status orange">Больничный</span></td>
+                  <td>—</td>
+                  <td>ГП-7Б №0416, р. 1</td>
+                </tr>
+                <tr>
+                  <td><b>Кузнецов П. А.</b><small>Рядовой, оператор</small></td>
+                  <td><span class="status green">Активен</span></td>
+                  <td><span class="status blue">Присутствовал</span></td>
+                  <td><span class="status green">Зачёт</span></td>
+                  <td>ГП-7Б №0417, р. 3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="muted-note">
+            Отметки сохраняются в демонстрационном журнале. Статус сотрудников и СИЗ доступны для просмотра.
+          </p>
+          <button class="confirm-button" id="markPresent">
+            Отметить всех активных как присутствующих
+          </button>
+        </section>
+
+        <section class="commander-card" id="equipment">
+          <div class="card-heading">
+            <h2>СИЗ и имущество звена</h2>
+            <span class="status green">100% НОРМА</span>
+          </div>
+
+          <div class="issue-box">
+            <small>ВЕДОМОСТЬ ВЫДАЧИ СИЗ №12</small>
+            <b>42 позиции</b>
+            <span>Основание: приказ №1 от 18.01.2024</span>
+            <span class="green-text">Подписана УКЭП</span>
+          </div>
+
+          <div class="meter meter-spaced">
+            <i style="width:100%"></i>
+          </div>
+
+          <div class="equipment-list">
+            <div><span>Мотопомпа МП-800</span><b>1 шт.</b></div>
+            <div><span>Пожарные рукава</span><b>12 шт.</b></div>
+            <div><span>Гидранты</span><b>4 шт.</b></div>
+            <div><span>Аптечки АИ-2</span><b>6 шт. <em>Сверка нормативов</em></b></div>
+            <div><span>Противогазы ГП-7Б</span><b>42 шт.</b></div>
+          </div>
+
+          <p class="muted-note">Место хранения имущества: склад №4.</p>
+        </section>
+      </div>
+
+      <div class="commander-bottom">
+        <section class="commander-card" id="classes">
+          <h2>Занятия и учения</h2>
+
+          <div class="lesson-row">
+            <b>Тема 3. Первая помощь</b>
+            <span>07.10.2024</span>
+            <span>2 ч.</span>
+            <span class="status green">Проведено</span>
+            <small>Теоретическое занятие, Орлов А. С.</small>
+          </div>
+
+          <div class="lesson-row">
+            <b>Тема 4. Действия при пожаре на ОПО</b>
+            <span>14.10.2024</span>
+            <span>4 ч.</span>
+            <span class="status green">Проведено</span>
+            <small>Практическое занятие, Орлов А. С.</small>
+          </div>
+
+          <div class="lesson-row">
+            <b>Тема 5. Использование СИЗОД</b>
+            <span>21.10.2024</span>
+            <span>2 ч.</span>
+            <span class="status blue">Запланировано</span>
+            <small>Практическое занятие, Орлов А. С.</small>
+          </div>
+        </section>
+
+        <section class="commander-card" id="orders">
+          <h2>Приказы особого периода</h2>
+
+          <div class="order-row">
+            <span>№1 · Создание НФГО, 18.01.2024</span>
+            <span class="status green">Подписан</span>
+          </div>
+
+          <div class="order-row">
+            <span>№7 · Перевод на особый режим, 12.09.2024</span>
+            <span class="status orange">Черновик</span>
+          </div>
+
+          <p class="muted-note">Последнее действие: присвоение звену статуса готовности.</p>
+          <button class="plain-button">Отметить действие выполненным</button>
+        </section>
+
+        <section class="commander-card" id="shelter">
+          <h2>Убежища и эвакуация</h2>
+
+          <div class="signature-list">
+            <div><span>Закреплённое укрытие</span><b>ЗС ГО №02</b></div>
+            <div><span>Вместимость объекта</span><b>450 человек</b></div>
+            <div><span>Маршрут эвакуации</span><b>Схема №3</b></div>
+            <div><span>Сбор звена</span><b>Площадка №4</b></div>
+            <div><span>Состояние маршрута</span><b class="green-text">Проверен</b></div>
+          </div>
+
+          <p class="muted-note">Сведения представлены в демонстрационных целях.</p>
+        </section>
+      </div>
+
+      <footer class="commander-footer">
+        <span>АСУ ГО и ЧС предприятия · Демонстрационный интерфейс</span>
+        <span>Канал защищён · Доступ ограничен</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<div id="gochsAdminApp" data-only-role="admin" hidden>
+  <header class="ga-top">
+    <div class="ga-brand"><span class="ga-brand-mark" aria-hidden="true">⛨</span><div><b>АСУ ГО и ЧС Предприятия</b><small>ПАО «Нефтехимпром» • КВО № 07-441</small></div></div>
+    <span class="ga-chip blue">Контур К1/1Г (Защищённый)</span>
+    <span class="ga-chip red">Режим администратора: SU / ROOT</span>
+    <span class="ga-chip"><i class="dot"></i>БД PG HA: <b>99.99%</b></span>
+    <span class="ga-chip">Очередь RabbitMQ: <b>0 мс</b></span>
+    <span class="ga-chip">Шлюз ЕАИС МЧС: <b class="green-text">Активен</b></span>
+    <div class="ga-top-actions">
+      <button class="ga-btn" type="button" data-ga-tab="audit">Журнал аудита ФСТЭК</button>
+      <button class="ga-btn danger-outline" type="button">Аварийный дамп БД</button>
+      <span class="user-mini"><span class="initials" data-bind="user.initials">КВ</span><span><b data-bind="user.shortName">Комиссаров В. Д.</b><small data-bind="user.shortPosition">Администратор безопасности ГОЧС</small></span></span>
+      <button class="ga-btn" type="button" data-logout>⏻ Выйти</button>
+    </div>
+  </header>
+  <div class="ga-layout">
+    <aside class="ga-side">
+      <div class="ga-ready"><b>⛨ ГОТОВНОСТЬ: ПОЛНАЯ</b><small>Объект 1-й категории опасности химического профиля</small></div>
+      <nav class="ga-nav" aria-label="Разделы администратора">
+        <p class="ga-nav-title">ОПЕРАТИВНОЕ УПРАВЛЕНИЕ</p>
+        <button type="button" data-ga-tab="monitoring"><span aria-hidden="true">▦</span>Сводный мониторинг</button><button type="button" data-ga-tab="formations"><span aria-hidden="true">♧</span>Формирования (НФГО / НАСФ)</button><button type="button" data-ga-tab="shelters"><span aria-hidden="true">◇</span>Защитные сооружения (ЗС ГО)</button><button type="button" data-ga-tab="ppe"><span aria-hidden="true">▣</span>Обеспеченность СИЗ и МТС</button><button type="button" data-ga-tab="training"><span aria-hidden="true">♙</span>Обучение и учения</button><button type="button" data-ga-tab="reports"><span aria-hidden="true">▤</span>Отчётность в МЧС России</button><button type="button" data-ga-tab="documents"><span aria-hidden="true">▥</span>Регламенты и документация</button>
+        <p class="ga-nav-title">АДМИНИСТРИРОВАНИЕ ГОЧС <span class="ga-tag navy">SU</span></p>
+        <button type="button" data-ga-tab="rbac"><span aria-hidden="true">⚿</span>Управление ролями RBAC</button><button type="button" data-ga-tab="audit"><span aria-hidden="true">☑</span>Журнал аудита ФСТЭК</button>
+      </nav>
+      <div class="ga-side-bottom"><b>Криптомодуль: ГОСТ Р 34.12 <span class="green-text">● АКТИВЕН</span></b><small>Серийный ключ СКЗИ: #RU-77-9941/ГОЧС</small></div>
+    </aside>
+    <main class="ga-main">
+<section class="ga-view" data-ga-view="monitoring" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>Включён режим системного аудитора и администратора мониторинга (Режим просмотра и верификации).</b> <span class="ga-tag amber">Уровень: AUDIT_SUPERVISOR / READ_ALL</span></p>
+    <p>Доступен сквозной мониторинг и верификация данных телеметрии, кадровой укомплектованности и каналов оповещения. Прямые модификации и ручной ввод заблокированы политикой неизменяемости логов.</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " >Журнал синхронизации 1С/HRM (Лог)</button> <button class="ga-btn " >Статус кэша телеметрии</button> <button class="ga-btn " >Журнал блокировок (Просмотр)</button> <button class="ga-btn ghost" disabled>Ручные корректировки отключены</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-export"><span>Выгрузка эталона:</span><button class="ga-btn " >JSON</button><button class="ga-btn " >XML (МЧС)</button><button class="ga-btn " >PDF (Форма 1/ГО)</button></div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Штатная численность НФГО</span></div>
+  <strong>318<small> / 320 чел.</small></strong>
+  <p><span class="ga-pct green-text">99.4%</span></p><div class="ga-pill green">✓ Сверка с табелем кадров: 10 мин назад</div>
+  <span class="ga-link">Просмотр порогов алерта</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Аттестовано в РСЧС</span></div>
+  <strong>304<small> чел.</small></strong>
+  <p><span class="ga-pct blue-text">95.6%</span></p><div class="ga-pill orange">14 на переаттестации (срок до 25.11)</div>
+  <span class="ga-link">Реестр аттестаций (Просмотр)</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Оснащённость СИЗ и МТС</span></div>
+  <strong>98.2%</strong>
+  <p>по табелю положенности</p><div class="ga-pill red">⚠ Цех №4: недостача 6 фильтров ГП-7Б</div>
+  <span class="ga-link">Аудит ведомости СИЗ</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Время сбора и готовности</span></div>
+  <strong>Ч + 1ч 45мин</strong>
+  <p></p><div class="ga-pill green">✓ Норматив Ч+2:00 выдержан (запас 15м)</div>
+  <span class="ga-link">Параметры норматива ГО</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-table-head"><div><h2>Реестр нештатных формирований ГО (НФГО)</h2><p>Управление расчётами, мониторинг каналов П-166 и административные корректировки</p></div><span class="status blue">Всего формирований: 8</span></div><div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Поиск по коду, цеху, ФИО командира"></label>
+    <select class="ga-select" aria-label="Все цеха предприятия"><option>Все цеха предприятия</option></select><select class="ga-select" aria-label="Все статусы готовности"><option>Все статусы готовности</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    
+    
+    <span class="ga-found"></span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th>Код</th><th>Наименование формирования</th><th>Командир формирования</th><th>Цех приписки</th><th>Штат (л/с)</th><th>Техника</th><th>Статус готовности</th><th>Канал вызова</th><th>Аудит и карточка</th></tr></thead>
+    <tbody>
+<tr><td><b class="ga-code">НФГО-01</b></td><td><b>Пожарно-спасательная команда</b><small>Табельный расчёт I категории опасности</small></td><td><b>Иванов С. В.</b><small>Допуск РСЧС № 104-A</small></td><td>Цех №1 (Крекинг)</td><td><b>42 / 42</b></td><td><span class="status blue">3 АЦ-40</span></td><td><span class="status green">Готово к выезду</span></td><td><span class="ga-chan">П-166 / Рация</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤</span><button class="ga-mini" type="button" disabled>Read-only</button></td></tr>
+<tr><td><b class="ga-code">НФГО-02</b></td><td><b>Звено радиационно-химической разведки</b><small>Газоанализ, приборы ВПХР, ПГО-11</small></td><td><b>Павлов Д. Н.</b><small>Сертификат Ростехнадзора</small></td><td>Цех №2 (Ароматика)</td><td><b class="green-text">18 / 18</b></td><td><span class="status blue">1 АРС-14</span></td><td><span class="status green">Готово к выезду</span></td><td><span class="ga-chan">П-166 / КВ-сеть</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤</span><button class="ga-mini" type="button" disabled>Read-only</button></td></tr>
+<tr class="attention-row"><td><b class="ga-code">НФГО-03</b></td><td><b>Санитарная дружина первой помощи</b><small class="red-text">Недостача 6 фильтров ГП-7Б (Цех №4)</small></td><td><b>Климова Т. А.</b><small>Врач медсанчасти</small></td><td>Цех №4 (Компрессорная)</td><td><b class="orange-text">22 / 24</b></td><td><span class="status blue">2 СМП (Газель)</span></td><td><span class="status orange">Ограниченно готово</span></td><td><span class="ga-chan orange-text">СМС / GSM</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤</span><button class="ga-mini" type="button" disabled>Read-only</button></td></tr>
+<tr><td><b class="ga-code">НФГО-04</b></td><td><b>Аварийно-техническая команда</b><small>Тяжёлое оборудование, локализация утечек</small></td><td><b>Сергеев М. И.</b><small>Главный механик</small></td><td>Управление ремонта</td><td><b>54 / 54</b></td><td><span class="status blue">4 Спецборта</span></td><td><span class="status blue">На учениях (Полигон №1)</span></td><td><span class="ga-chan">П-166 / СВЧ</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤</span><button class="ga-mini" type="button" disabled>Read-only</button></td></tr>
+<tr><td><b class="ga-code">НФГО-05</b></td><td><b>Группа связи и оповещения</b><small>Управление сиренами С-40, громкоговорителями</small></td><td><b>Воронов А. Г.</b><small>Начальник связи</small></td><td>Узел связи КВО</td><td><b>16 / 16</b></td><td><span class="status blue">1 ПУ-Связь</span></td><td><span class="status green">Готово к выезду</span></td><td><span class="ga-chan">П-166 / Оптика</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤</span><button class="ga-mini" type="button" disabled>Read-only</button></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Показано 5 из 8 формирований первой очереди &nbsp;|&nbsp; <span class="green-text">✓ Хеш таблицы реестра валиден:</span> <code>#E84F-910A-B321</code></span><div class="ga-pages"><button class="ga-page" type="button">Пред.</button><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">След.</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>⌘ Статус шины данных предприятия (ГОЧС Gateway)</h2><small class="muted-text">Частота поллинга: 30 сек</small></div>
+  <div class="ga-adapters"><div class="ga-adapter"><b>1С:Предприятие ERP <i class="dot"></i></b><small>Кадры, табельные номера</small><code>Синхр: 3 мин назад</code></div><div class="ga-adapter"><b>СКУД «Интеллект» <i class="dot"></i></b><small>Турникеты проходных 1-5</small><code>Поток: Real-time (0с)</code></div><div class="ga-adapter"><b>АСУ Медосмотры <i class="dot"></i></b><small>Медсанчасть завода</small><code>Синхр: 18 мин назад</code></div></div><p class="ga-note">Все внешние адаптеры работают через изолированный крипто-шлюз ФСТЭК. Ошибок десериализации пакетов в очереди за последние 24 часа не зафиксировано.</p><div class="ga-card-foot"><span>Шлюз интеграции П-166Ц БУУП: готов к рассылке сигналов ЧС</span><button class="ga-link-btn" type="button">Тест шлюзовых сокетов</button></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>▣ Синхронизация СКУД проходных</h2><span class="status green">В СЕТИ</span></div>
+  <div class="ga-people"><div><i class="dot"></i>Бойцов НФГО на промплощадке: <b class="green-text">298 чел.</b></div><div><i class="dot orange"></i>На межсменном отдыхе (доступны по вызову): <b class="orange-text">20 чел.</b></div><div><i class="dot red"></i>На больничном / временная нетрудоспособность: <b class="red-text">2 чел.</b></div></div><button class="ga-btn soft block" >Просмотр проекта приказа (Read-only)</button><p class="ga-note center">Автоматический подбор дублёров рассчитан • Модификация доступа оперативному дежурному</p>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="formations" hidden>
+<section class="ga-banner red">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВКЛЮЧЁН РЕЖИМ АУДИТОРА И ИНСПЕКТОРА ФОРМИРОВАНИЙ (ТОЛЬКО ПРОСМОТР)</b> </p>
+    <p>Уровень привилегий: AUDIT_SUPERVISOR / READ_ALL. Прямое редактирование штатно-должностных расписаний и принудительное назначение командиров отключены. Режим верификации, контрольного надзора и аудита ГОСТ Р 22.0.02-2016.</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn primary" >Сформировать выписку реестра (PDF)</button> <button class="ga-btn " >Журнал назначений 1С</button> <button class="ga-btn " >Сверка допусков</button> <button class="ga-btn " >Телеметрия П-166 (Мониторинг)</button> <button class="ga-btn " >Экспорт табеля (№999)</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ГОСТ Р 22.0.02-2016 / ПРИКАЗ МЧС РОССИИ № 999 / РЕЕСТР НФГО / НАСФ</span></div>
+    <h1>Реестр нештатных аварийно-спасательных и пожарных формирований <span class="ga-tag blue">14 подразделений</span></h1>
+    <p>Ревизия базы: 08.11.2024 14:32:00 MSK</p>
+  </div>
+  <div class="ga-actions"></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего формирований</span><span class="ga-tag green">ОПО I категории</span></div>
+  <strong>14</strong>
+  <p><span class="blue-text">11 НФГО (I очереди) + 3 НАСФ</span></p>
+  <span class="ga-link">Настройка категорийности</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Укомплектованность л/с</span><span class="ga-tag amber">Дефицит: 2 чел.</span></div>
+  <strong>318<small> / 320 чел. (99.4%)</small></strong>
+  <p>В строю: 294 &nbsp; Отпуск: 18 &nbsp; Больничный: 6</p>
+  <span class="ga-link">Заместить из резерва</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Аттестация в РСЧС</span><span class="ga-tag amber">14 истекают</span></div>
+  <strong>304<small> / 318 (95.6%)</small></strong>
+  <p><span class="orange-text">14 чел. на повторной аттестации до 25.11</span></p>
+  <span class="ga-link">Продлить временный допуск</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Закреплённая спецтехника</span><span class="ga-tag green">Боеготовность 100%</span></div>
+  <strong>28<small> / 28 ед. (100%)</small></strong>
+  <p>АЦ-40 (8), ПНС-110 (4), АР-2 (2), КШМ (2)…</p>
+  <span class="ga-link">Инвентарные карточки ГО</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Поиск по названию формирования, коду, цеху, ФИО командира или №"></label>
+    <select class="ga-select" aria-label="Все типы (НФГО / НАСФ)"><option>Все типы (НФГО / НАСФ)</option></select><select class="ga-select" aria-label="Все цеха предприятия"><option>Все цеха предприятия</option></select><select class="ga-select" aria-label="Статус готовности (Вся)"><option>Статус готовности (Вся)</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    <b class="ga-quick-label">БЫСТРЫЕ ВЫБОРКИ:</b>
+    <label class="ga-check"><input type="checkbox"> Только с истекающими допусками РСЧС (14)</label><label class="ga-check"><input type="checkbox"> Некомплект л/с по смене (2)</label><label class="ga-check"><input type="checkbox"> Требуется техконтроль табельных СИЗ (3)</label>
+    <span class="ga-found"><span class="muted-text">Пакетные операции (выбрано: 0):</span> <button class="ga-btn ghost" disabled>Групповая проверка связи</button> <button class="ga-btn ghost" disabled>Сформировать сводный акт</button></span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th class="ga-col-check"><input type="checkbox" aria-label="Выбрать все"></th><th>Код</th><th>Наименование и тип формирования</th><th>Цех приписки / дислокация</th><th>Командир (ФИО / удостоверение РСЧС)</th><th>Личный состав (штат/факт/смена)</th><th>Техника и СИЗ</th><th>Канал оповещения (П-166)</th><th>Боеготовность</th><th>Действия</th></tr></thead>
+    <tbody>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НФГО-01</b></td><td><b>Команда пожаротушения газовых блоков</b> <span class="ga-tag blue">НФГО I оч.</span><small>Ликвидация аварийных пожаров и разливов ШФУ</small></td><td><b>Цех №1 Крекинг и риформинг</b><small>Бокс 1-А (Отметка 8.00)</small></td><td><b>Савельев Игорь Николаевич</b><small class="">Уд. РСЧС № 78-А-04192 [Действ. до 2026]</small></td><td><b class="">24 / 24</b> <span class="ga-pill-s">22 на смене</span></td><td><b>АЦ-40 (Урал-5557) • 1 ед.</b><small>СИЗ ГП-7Б: 24 • Л-1: 24 шт.</small></td><td><b>Стойка №2 / Гр. 01</b><small>Пинг 12 мс (Онлайн + УКВ)</small></td><td><span class="status green">ГОТОВО К ВЫЕЗДУ</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НФГО-02</b></td><td><b>Пост радиационного и химического наблюдения (РХН)</b> <span class="ga-tag blue">НФГО I оч.</span><small>Мониторинг приземного слоя атмосферы, ВПХР, ДП-5В</small></td><td><b>Цех №2 Ароматика</b><small>Лабораторный пост №4</small></td><td><b>Воропаев Алексей Юрьевич</b><small class="orange-text">Уд. № 77-РХ-0112 [Истекает 29.11]</small></td><td><b class="">8 / 8</b> <span class="ga-pill-s">8 на смене</span></td><td><b>Лаборатория УАЗ-Патриот ХР</b><small>ВПХР: 4 к-та • Дозиметры ДКГ: 8 шт.</small></td><td><b>УКВ Сеть «Гранит-2»</b><small>Канал 146.125 МГц (ОК)</small></td><td><span class="status green">ГОТОВО К ВЫЕЗДУ</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НАСФ-01</b></td><td><b>Газоспасательная дружина быстрого развёртывания</b> <span class="ga-tag navy">НАСФ ПРОФ.</span><small>Локализация аварийных выбросов сероводорода и хлора</small></td><td><b>Пожарно-спасательное депо КВО</b><small>Бокс спецтехники №1</small></td><td><b>Макаров Денис Викторович</b><small class="">Спас. книжка № 78-Д-9812 [1 класс спасателя]</small></td><td><b class="orange-text">30 / 32</b> <span class="ga-pill-s">26 на смене</span></td><td><b>АСМ-41 (КАМАЗ-43118) ГСД</b><small>ДАСВ Dräger: 32 к-та • Костюмы ТАСК</small></td><td><b>П-166 / Прямая оптика</b><small>Резерв: GSM-шлюз M2M</small></td><td><span class="status orange">ОГРАНИЧЕННО ГОТОВО</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НФГО-03</b></td><td><b>Аварийно-техническая группа трубопроводов</b> <span class="ga-tag blue">НФГО I оч.</span><small>Бандажирование утечек, перекрытие задвижек Ду-300..1200</small></td><td><b>Цех №3 Товарно-сырьевой</b><small>Площадка «Северная»</small></td><td><b>Ковальчук Андрей Петрович</b><small class="">Уд. РСЧС № 78-Т-8821 [Допуск 2025]</small></td><td><b class="">18 / 18</b> <span class="ga-pill-s">16 на смене</span></td><td><b>Автомастерская ПРМ-1</b><small>Хомуты ГОСТ 999</small></td><td><b>Стойка №2 / Гр. 03</b><small>Пинг 18 мс</small></td><td><span class="status green">ГОТОВО К ВЫЕЗДУ</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НФГО-04</b></td><td><b>Санитарная дружина первой помощи (СД-1)</b> <span class="ga-tag blue">НФГО I оч.</span><small>Сортировка пораженных, противошоковая терапия, эвакуация</small></td><td><b>Медсанчасть предприятия</b><small>Корпус Б, Санпропускник</small></td><td><b>Дмитриева Ольга Семёновна</b><small class="">Врач МС РСЧС № 12-М-551 [Сертификат действителен]</small></td><td><b class="">24 / 24</b> <span class="ga-pill-s">24 на смене</span></td><td><b>Санитарный реанимобиль ГАЗель</b><small>АИ-2: 100% • Носилки НС-2: 16 шт.</small></td><td><b>GSM-шлюз / IP-АТС</b><small>Канал дублирован</small></td><td><span class="status green">ГОТОВО К ВЫЕЗДУ</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НФГО-05</b></td><td><b>Звено инженерной разведки и разбора завалов</b> <span class="ga-tag blue">НФГО I оч.</span><small>Прокладка путей эвакуации, тяжёлая техника, резка конструкций</small></td><td><b>Цех №4 Компрессорная</b><small>Гараж спецтехники №5</small></td><td><b>Григорьев Роман Станиславович</b><small class="">Уд. книжка № 78-И-3310 [Допуск 2025]</small></td><td><b class="">12 / 12</b> <span class="ga-pill-s">12 (учения)</span></td><td><b>Инженерный тягач БАТ-2 • Автокран</b><small>Гидроинструмент «Медведь» • 4 ед.</small></td><td><b>УКВ Радио «Гранит-2»</b><small>Полигон №1 (Штаб учений)</small></td><td><span class="status blue">НА УЧЕНИЯХ (ПОЛИГОН №1)</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">НАСФ-02</b></td><td><b>Аварийно-спасательное звено радиационной дегазации</b> <span class="ga-tag navy">НАСФ ПРОФ.</span><small>Обработка техники ДК-4, дезактивация зданий и промтехники</small></td><td><b>Цех нейтрализации и очистки</b><small>Бокс станции №1</small></td><td><b>Тимофеев Василий Аркадьевич</b><small class="">Спас. книжка № 78-Д-9844 [2 класс спасателя]</small></td><td><b class="">14 / 14</b> <span class="ga-pill-s">14 на смене</span></td><td><b>Авторазливочная станция АРС-14К</b><small>Раствор СФ-2У: 1200 л • Костюмы Л-1</small></td><td><b>П-166 Цех №1</b><small>Пинг 10 мс (Онлайн)</small></td><td><span class="status green">ГОТОВО К ВЫЕЗДУ</span></td><td><button class="ga-btn " type="button">Карточка</button></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Показано формирований: 7 из 14 &nbsp;|&nbsp; Общий боевой расчёт: <b>318 человек</b> &nbsp;|&nbsp; На дежурстве по СКУД: <b>294 человека (92.4%)</b></span><div class="ga-pages"><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">›</button><button class="ga-page" type="button">»</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>⇄ Контроль оперативной замены л/с</h2><span class="ga-tag amber">ТРЕБУЕТСЯ ЗАМЕНА (2)</span></div>
+  <p class="ga-note">Синхронизация СКУД «Gate-IP» и табеля «1С:ЗУП ГОЧС»</p><div class="ga-swap"><div><b class="red-text">Иванов М. В. (Газоспасатель НАСФ-01)</b><small class="red-text">Больничный лист с 07.11 (ЭЛН № 91024)</small></div><span>→</span><div><b>Петров С. А. (Цех №2)</b><small class="green-text">Дублёр из резерва</small></div><button class="ga-btn " >Карточка резервиста</button></div><div class="ga-swap"><div><b>Смирнов К. Д. (Водитель АЦ-40 НФГО-01)</b><small class="orange-text">Плановый отпуск до 15.11.2024</small></div><span>→</span><div><b>Ермолаев П. И. (Транспортный цех)</b><small class="green-text">Кат. С/Е, спецдопуски ОК</small></div><button class="ga-btn " >Карточка резервиста</button></div><div class="ga-card-foot"><span>Штат укомплектован на 99.4%</span><button class="ga-btn " >Просмотр проекта приказа (Read-only)</button></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>☑ Протокол ревизии табеля положенности</h2><span class="status green">СВЕРКА ПРОЙДЕНА (ОК)</span></div>
+  <p class="ga-note">Нормы обеспечения согласно Приказу МЧС РФ от 23.12.2005 № 999</p><div class="ga-kv"><span>Норма радиационно-химической разведки:</span><b>ВПХР (28/28), ДП-5В (14/14) — 100%</b></div><div class="ga-kv"><span>Обеспеченность изолирующими противогазами (ИП-4М):</span><b>124 комплекта (100% от нормы)</b></div><div class="ga-kv"><span>Хеш-сумма утверждённого реестра ГОСТ Р 34.11:</span><b><code>8f9b2c…aa481a88b</code></b></div><div class="ga-kv"><span>ЭЦП Начальника штаба ГОЧС предприятия:</span><b><span class="green-text">🔒 Подписано (Сертификат до 18.09.2026)</span></b></div><div class="ga-card-foot"><span>Предыдущий аудит МЧС: 14.10.2024 (Без замечаний)</span><button class="ga-btn " >Сформировать выписку табеля (PDF)</button></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="shelters" hidden>
+<section class="ga-banner orange">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: ВКЛЮЧЁН РЕЖИМ АУДИТОРА ИНЖЕНЕРНЫХ СИСТЕМ ЗС ГО (РЕЖИМ ПРОСМОТРА)</b> <span class="ga-tag amber">УРОВЕНЬ ПРИВИЛЕГИЙ: AUDIT_SUPERVISOR / READ_ALL</span></p>
+    <p>Внимание: включён режим наблюдателя/аудитора инженерных систем ЗС ГО. Принудительное переключение режимов ФВУ и ручная калибровка клапанов отключены. Доступен полный аудит телеметрии, проверка паспортов ЗС ГО, просмотр протоколов опрессовки и архивных актов регламентного ТО.</p>
+  </div>
+  <div class="ga-banner-actions"></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">Ревизия базы: 18 сооружений • Вместимость 4 200 чел. • 100% укрытие рабочей смены • Норматив СП 88.13330</span></div>
+    <h1>Реестр защищённых сооружений (ЗС ГО) </h1>
+    <p></p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn primary" >Реестр паспортов БТИ / МЧС (Просмотр)</button> <button class="ga-btn " >Опрос SCADA / датчиков</button> <button class="ga-btn " >Протоколы опрессовки (Архив)</button> <button class="ga-btn " >Журнал калибровки клапанов</button> <button class="ga-btn " >Экспорт формы № 1-ЗС МЧС</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего ЗС ГО на учёте</span></div>
+  <strong>18<small> ед.</small></strong>
+  <p>14 убежищ (Класс А-II/А-IV) + 4 ПРУ</p><div class="ga-pill green">✓ Все внесены в реестр ГУ МЧС</div>
+  <span class="ga-link">Паспорт реестра категорий ЗС →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Вместимость / Дефицит мест</span></div>
+  <strong>4 200<small> / 0 дефицит</small></strong>
+  <p>Смена 3 850 чел. + оперативный резерв 350 мест</p><div class="ga-pill green">✓ 100% укрытие персонала</div>
+  <span class="ga-link">Перераспределение контингентов →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Инженерная готовность ФВУ / ДЭС</span></div>
+  <strong>96.8%<small> 17 из 18 в норме</small></strong>
+  <p>Автономные ДЭС: 12 ед. • ФВК-1/2: 18 ед.</p><div class="ga-pill orange">⚠ ЗС №04 — замена ФПУ-300 до 15.11</div>
+  <span class="ga-link">Просмотр акта ТО ФВУ →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Тест герметичности (СП 88)</span></div>
+  <strong>18 / 18<small> 100%</small></strong>
+  <p>Подпор воздуха: ΔР ≥ 50 Па (норматив ГОСТ)</p><div class="ga-pill green">Гермоклапаны и тамбур-шлюзы: норма</div>
+  <span class="ga-link">Запустить внеплановую опрессовку →</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Поиск по номеру"></label>
+    <select class="ga-select" aria-label="Все классы защиты (А-II, А-IV, ПРУ)"><option>Все классы защиты (А-II, А-IV, ПРУ)</option></select><select class="ga-select" aria-label="Все подразделения / цеха"><option>Все подразделения / цеха</option></select><select class="ga-select" aria-label="Все статусы готовности"><option>Все статусы готовности</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    
+    <label class="ga-check"><input type="checkbox"> Только с истекающим сроком ФВУ</label><label class="ga-check"><input type="checkbox" checked> Только автономные по ДЭС</label><label class="ga-check"><input type="checkbox"> Требуется поверка манометров</label>
+    <span class="ga-found"></span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th class="ga-col-check"><input type="checkbox" aria-label="Выбрать все"></th><th>Инв. № и класс</th><th>Наименование / привязка к ОПО</th><th>Вместимость / расчёт</th><th>Режим ФВУ и SCADA</th><th>Комендант убежища</th><th>Готовность</th><th>Административные действия</th></tr></thead>
+    <tbody>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-01</b> <span class="ga-class">А-II</span><small class="">МЧС: #64-0012-ЗС</small></td><td><b>Убежище Цеха №1 (Установка Крекинга)</b><small>Корпус 102/Б • Заглубленное отдельностоящее</small></td><td><b>450 чел.</b><small class="green-text">Смена: 420 чел. (Запас +30)</small></td><td><b class=""><i class="dot "></i>Режим I (Чистая вент.)</b><small>ΔР: 50 Па • О₂: 20.9% • СО₂: 0.3%</small></td><td><b>Ковалёв А. В.</b><small>+7 (903) 412-88-10 • Уд. № 881</small></td><td><span class="status green">✓ Готово к приёму</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-02</b> <span class="ga-class">А-IV</span><small class="">МЧС: #64-0013-ЗС</small></td><td><b>Убежище Цеха №2 (Производство Ароматики)</b><small>Корпус 205 • Встроенное подвальное</small></td><td><b>300 чел.</b><small class="green-text">Смена: 280 чел. (Запас +20)</small></td><td><b class=""><i class="dot "></i>Режим I (Чистая вент.)</b><small>ΔР: 52 Па • О₂: 20.9% • СО₂: 0.28%</small></td><td><b>Сафронов Е. М.</b><small>+7 (905) 118-29-33 • Уд. № 904</small></td><td><span class="status green">✓ Готово к приёму</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤ ⟲</span></td></tr>
+<tr class="selected"><td class="ga-col-check"><input type="checkbox" checked aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-04</b> <span class="ga-class">А-IV</span><small class="red-text">МЧС: #64-0015-ЗС</small></td><td><b>Убежище Компрессорной станции №4 ⚠</b><small>Блок компрессоров водорода • Отдельностоящее</small></td><td><b>250 чел.</b><small class="green-text">Смена: 210 чел. (Запас +40)</small></td><td><b class="orange-text"><i class="dot orange"></i>Режим II (Фильтровент.)</b><small>ФВУ-300: ресурс 4% • Подпор: 48 Па</small></td><td><b>Григорьев В. П.</b><small>+7 (917) 650-04-12 • Уд. № 772</small></td><td><span class="status orange">ТО ФВУ до 15.11</span></td><td><button class="ga-btn soft" >Просмотр акта ТО</button> <span class="ga-icons" aria-hidden="true">▤</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-03</b> <span class="ga-class">А-II</span><small class="">МЧС: #64-0014-ЗС</small></td><td><b>Главное убежище Заводоуправления</b><small>Корпус Административный • Встроенное (ДЭС-100)</small></td><td><b>1 200 чел.</b><small class="green-text">Смена: 1 100 чел. (Запас +100)</small></td><td><b class=""><i class="dot "></i>Режим I (Чистая вент.)</b><small>ΔР: 61 Па • О₂: 20.9% • СО₂: 0.2%</small></td><td><b>Николаев Д. С.</b><small>+7 (927) 304-91-55 • Уд. № 610</small></td><td><span class="status green">✓ Готово к приёму</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-05</b> <span class="ga-class">ПРУ-1</span><small class="">МЧС: #64-0016-ЗС</small></td><td><b>Противорадиационное укрытие Склада СУГ</b><small>Корпус 80 • Обычное, коэффициент Ку=200</small></td><td><b>150 чел.</b><small class="green-text">Смена: 120 чел. (Запас +30)</small></td><td><b class=""><i class="dot "></i>Естественная / ФВУ</b><small>ΔР: 50 Па • О₂: 20.9% • Клапаны закрыты</small></td><td><b>Тихонов С. Г.</b><small>+7 (960) 843-18-40 • Уд. № 992</small></td><td><span class="status green">✓ Готово к приёму</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b class="ga-code">ЗС-06</b> <span class="ga-class">А-II</span><small class="">МЧС: #64-0017-ЗС</small></td><td><b>Убежище Склада Химических Реагентов</b><small>Корпус 312 • Заглубленное специальное</small></td><td><b>350 чел.</b><small class="green-text">Смена: 310 чел. (Запас +40)</small></td><td><b class=""><i class="dot "></i>Режим I (Чистая вент.)</b><small>ΔР: 50 Па • О₂: 20.9% • СО₂: 0.25%</small></td><td><b>Белов А. И.</b><small>+7 (927) 819-22-14 • Уд. № 840</small></td><td><span class="status green">✓ Готово к приёму</span></td><td><span class="ga-icons" aria-hidden="true">◉ ▤ ⟲</span></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Показано 6 из 18 защитных сооружений филиала НПЗ-1</span><div class="ga-pages"><button class="ga-page" type="button">Предыдущая</button><button class="ga-page" type="button">Следующая</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>◈ Инженерная телеметрия SCADA убежищ (Критический узел ЗС-04)</h2><span class="ga-tag navy">ONLINE • ТОЛЬКО МОНИТОРИНГ</span></div>
+  <div class="ga-tiles"><div class="ga-tile"><small>ПОДПОР ВОЗДУХА</small><b class="">48 Па</b><small class="orange-text">Требует калибровки</small></div><div class="ga-tile"><small>ДАТЧИК АХОВ (ХЛОР)</small><b class="green-text">0 мг/м³</b><small class="green-text">ПДК в норме</small></div><div class="ga-tile"><small>ЗАПАС ВОДЫ</small><b class="">98%</b><small class="">14,8 м³ / 15,0 м³</small></div><div class="ga-tile"><small>ТОПЛИВО ДЭС</small><b class="">72 ч</b><small class="">Бак 100% (2,4 т)</small></div></div><p class="ga-note">⚡ Основной ввод 380В активен. Автомат АВР-100 в дежурном режиме готовности. <code>SCADA v4.18.2-rt</code></p><div class="ga-card-foot"><span>Последний опрос шины RS-485: 3 сек. назад</span><span><button class="ga-btn " >Журнал аварий</button> <button class="ga-btn ghost" disabled>Пуск ДЭС (Блокирован SU)</button></span></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>◎ Электронный паспорт ЗС ГО и юридический надзор МЧС</h2><span class="status green">ВЕДОМСТВЕННЫЙ АУДИТ ПРОЙДЕН</span></div>
+  <div class="ga-kv"><span>Учёт в территориальном реестре ГУ МЧС РФ:</span><b>№ РЕЕСТРА 64-10029-АСУ (Активен)</b></div><div class="ga-kv"><span>Право собственности / Имущество:</span><b>Собственник ПАО «Нефтехимпром» (Обременение ГО)</b></div><div class="ga-kv"><span>Акт ежегодного осмотра и проверки герметичности:</span><b><span class="green-text">Акт № 44-3С от 12.09.2024 (Утверждён)</span></b></div><div class="ga-kv"><span>Электронная подпись (УКЭП):</span><b>🔒 Начальник штаба ГОЧС полковник Самойлов А. Е. (Сертификат действителен)</b></div><p class="ga-note blue">В соответствии с Приказом МЧС РФ № 583, паспорта убежищ филиала актуализированы в электронном виде и синхронизированы через защищённый канал СМЭВ с ЕАИС МЧС России.</p><div class="ga-card-foot"><span>Синхронизация с ЕАИС МЧС: 08:00 (Успешно)</span><span><button class="ga-btn " >Синхронизировать</button> <button class="ga-btn primary" >Сформировать выписку паспорта ЗС ГО (PDF с ЭЦП)</button></span></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="ppe" hidden>
+<section class="ga-banner orange">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: ВКЛЮЧЁН РЕЖИМ АДМИНИСТРАТОРА РЕЗЕРВОВ СИЗ И МТС ГОЧС.</b> <span class="ga-tag amber">УРОВЕНЬ ПРИВИЛЕГИЙ: ROOT_EMERGENCY [SU OVERRIDE]</span></p>
+    <p>Доступны прямое редактирование номенклатурных остатков в обход WMS, списание партий СИЗ с истёкшим сроком хранения, принудительное назначение лабораторных переиспытаний фильтров ФПК, калибровка норм табеля положенности (Приказ МЧС № 543/285/999) и выгрузка формы статистической отчётности № 2-СИЗ в ЕАИС МЧС.</p>
+  </div>
+  <div class="ga-banner-actions"></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ГОСТ Р 22.9.19-2014 / ПРИКАЗ МЧС РОССИИ № 543 / СИЗ И МАТЕРИАЛЬНО-ТЕХНИЧЕСКИЕ СРЕДСТВА</span></div>
+    <h1>Складской баланс СИЗ и материально-технических средств ГО </h1>
+    <p>Баланс складов №1, №2 (ЦЗЛ), №4 • Нормативное покрытие: 100% персонала (4 200 чел.) + резерв НФГО 320 чел. • Приказ МЧС РФ № 543/285</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn primary" >+ Принять партию СИЗ на баланс</button> <button class="ga-btn " >Сверка 1С:ERP / WMS</button> <button class="ga-btn amber" >Лабораторный переконтроль (ЦЗЛ)</button> <button class="ga-btn " >Акт списания</button> <button class="ga-btn " >Форма № 2-СИЗ</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего СИЗ на балансе</span><span class="ga-tag green">Внесено в баланс МЧС</span></div>
+  <strong>16 840<small> ед.</small></strong>
+  <p>ГП-7Б, Респираторы Р-2, Л-1, Аптечки КИМГЗ • Штрихкод/RFID: 100%</p>
+  <span class="ga-link">Настройка групп →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Обеспеченность персонала</span><span class="ga-tag green">100% нормативы</span></div>
+  <strong>100%<small> 0 дефицит</small></strong>
+  <p>6 200 см. + 320 НФГО + 10% аварийный запас • 4 972 компл. в наличии</p>
+  <span class="ga-link">Табель положенности →</span>
+</article><article class="ga-kpi warn">
+  <div class="ga-kpi-title"><span>Контроль сроков годности</span><span class="ga-tag amber">Требует внимания</span></div>
+  <strong>98.4%<small> в норме</small></strong>
+  <p><span class="orange-text">1 партия истекла: 120 шт. ФПК-7Б (Склад №4). 3 партии &lt; 6 мес.: 480 шт. (до 31.01)</span></p>
+  <span class="ga-link">Списать / Продлить →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Готовность пунктов выдачи (ПВ СИЗ)</span><span class="ga-tag green">6 / 6 ПВ готовы</span></div>
+  <strong>850<small> чел./час</small></strong>
+  <p>Оборудование и стеллажный учёт проверены • Расчёт развёртывания: 45 мин.</p>
+  <span class="ga-link">Аудит ПВ →</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="ГП-7Б"></label>
+    <select class="ga-select" aria-label="Все категории: Фильтрующие СИЗОД, Изолирующие…"><option>Все категории: Фильтрующие СИЗОД, Изолирующие…</option></select><select class="ga-select" aria-label="Все склады хранения (Склады №1, №2 ЦЗЛ, №4…)"><option>Все склады хранения (Склады №1, №2 ЦЗЛ, №4…)</option></select><select class="ga-select" aria-label="Статус: Любой статус"><option>Статус: Любой статус</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    
+    <label class="ga-check"><input type="checkbox" checked> Только с истекающим сроком (≤ 6 мес.)</label><label class="ga-check"><input type="checkbox"> Спецразмер спасательных формирований (НФГО / НАСФ)</label><label class="ga-check"><input type="checkbox"> Требуется проверка давления и регенеративных патронов</label>
+    <span class="ga-found">Показано: 6 из 48 номенклатурных партий &nbsp; <button class="ga-link-btn" type="button">Сбросить фильтры</button></span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th class="ga-col-check"><input type="checkbox" aria-label="Выбрать все"></th><th>Номенклатура и стандарт ГОСТ</th><th>Склад и место хранения</th><th>Партия / завод / год</th><th>Факт / табель (баланс)</th><th>Срок хранения / акт ЦЗЛ</th><th>Закрепление</th><th>Администрирование</th></tr></thead>
+    <tbody>
+<tr class="selected"><td class="ga-col-check"><input type="checkbox" checked aria-label="Выбрать строку"></td><td><b>Гражданский противогаз ГП-7Б</b> <span class="ga-tag blue">ГОСТ Р 12.4.041</span><small>Комплектация: лицевая часть МП-07, коробка ФПК-7Б, сумка</small></td><td><b>Склад №4 (Цеховой)</b><small>Секция В-04, паллета 012 (MP10-0042)</small></td><td><b>Партия № 084-21</b><small>АО «Сорбент» • 2012 г.в.</small></td><td><b class="red-text">120 шт.</b><small>/ 120 норма</small></td><td><b class="red-text">⚠ Истёк 14.10.2024</b><small>Требуется списание или лаб. анализ</small></td><td><small class="ga-assign">Смена цеха №4 (ЗЛОУ-АВТ-6)</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Коробка фильтрующе-поглощающая ФПК ГП-7К</b> <span class="ga-tag gray">ЗИП</span><small>Резервные фильтры для замены по регламенту</small></td><td><b>Склад №1 (Базовый ГО)</b><small>Стеллаж А-14, бокс 3 (Герметичный)</small></td><td><b>Партия № 112-2018</b><small>ОАО «Тамбовмаш» • 2018 г.в.</small></td><td><b class="">480 шт.</b><small>/ 480 норма</small></td><td><b class="orange-text">До 20.11.2024 (≤ 1 мес)</b><small>Протокол ЦЗЛ №419-2022 в силе</small></td><td><small class="ga-assign">Стратегический резерв ГОЧС</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Изолирующий дыхательный аппарат ИП-4М</b> <span class="ga-tag navy">ИЗОЛИРУЮЩИЙ СИЗОД</span><small>С регенеративным патроном РП-4, маска МИА-1</small></td><td><b>Склад №2 (ЦЗЛ / Хим.защита)</b><small>Стеллаж 8-Б, термобокс Т-18</small></td><td><b>Партия № 042-2022</b><small>ООО «Корпорация Росхимзащита» • 2022 г.</small></td><td><b class="">320 шт.</b><small>/ 320 норма</small></td><td><b class="green-text">Годен до 08.2029</b><small>Герметичность: проверена 08.2024</small></td><td><small class="ga-assign">Формирования НАСФ №1</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Костюм лёгкий защитный Л-1 (Респ 2, 3, 4)</b> <span class="ga-tag blue">ГОСТ 12.4.281</span><small>Ткань Т-15 прорезиненная, куртка с капюшоном, брюки с чулками</small></td><td><b>Склад №1 (Базовый ГО)</b><small>Стеллаж С-09, ярус 2</small></td><td><b>Партия № 774-2023</b><small>ООО «Химзащита» • 2023 г.в.</small></td><td><b class="">1 150 шт.</b><small>/ 1 000 норма</small></td><td><b class="green-text">Годен до 12.2033</b><small>Входной контроль пройден 100%</small></td><td><small class="ga-assign">НФГО ЦЗЛ + Склад резерва</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Комплект индивидуальный медицинский КИМГЗ «Юнита»</b> <span class="ga-tag red">ПРИКАЗ МИНЗДРАВА №348н</span><small>Состав для химических аварий (антидоты АХОВ, радиопротекторы)</small></td><td><b>Склад №1 (Санчасть ГО)</b><small>Сейф МЕД-01 (пломба М09031)</small></td><td><b>Партия № М-304/23</b><small>ЗАО «Фармзащита» • 2023 г.в.</small></td><td><b class="">4 520 компл.</b><small>/ 4 520 норма</small></td><td><b class="green-text">Годен до 06.2027</b><small>Спецпрепараты опломбированы</small></td><td><small class="ga-assign">100% персонал цехов + НАСФ</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Респиратор противогазоаэрозольный РПГ-67 (Патроны А1В1Е1К1)</b> <span class="ga-tag blue">ГОСТ 12.4.296</span><small>Для технологического персонала резервуарных парков</small></td><td><b>Склад №4 (Цеховой)</b><small>Секция Р-01, ячейка 8</small></td><td><b>Партия № 891-2023</b><small>АО «Бриз-Кама» • 2023 г.в.</small></td><td><b class="">2 200 шт.</b><small>/ 2 200 норма</small></td><td><b class="green-text">Годен до 04.2028</b><small>Упаковка в заводской вакуумной упаковке</small></td><td><small class="ga-assign">Цеха товарно-сырьевого цеха</small></td><td><span class="ga-icons" aria-hidden="true">✎ ⚗ ✕</span></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Выбрано строк: 2 &nbsp; <button class="ga-btn " >Сформировать акт переиспытания</button> <button class="ga-btn danger-outline" >Пакетное списание выбранного</button></span><div class="ga-pages"><button class="ga-page" type="button">|‹</button><button class="ga-page" type="button">‹</button><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">3</button><button class="ga-page" type="button">›</button><button class="ga-page" type="button">›|</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>⚗ Модуль оперативного лабораторного переконтроля СИЗ (ЦЗЛ)</h2><span class="ga-tag green">ШИНА ЦЗЛ АКТИВНА</span></div>
+  <p class="ga-note">Автоматическое сопряжение со стендом лабораторных испытаний фильтрующих коробок на сопротивление постоянному потоку воздуха (ГОСТ 12.4.235) и коэффициент проникания паров опасных химических веществ (ОХВ).</p><div class="ga-lab"><div><small>Текущая партия на стенде:</small><b>ФПК-7Б #084-21</b></div><div><small>Сопротивление потоку:</small><b class="red-text">182 Па (&gt;160 норма)</b></div><div><small>Заключение инженера:</small><b class="red-text">БРАК / СПИСАНИЕ</b></div></div><div class="ga-card-foot"><span>КЭП поверителя: Сертификат RU.0305.ФСТЭК действителен</span><button class="ga-btn primary" >Внести протокол испытаний (КЭП)</button></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>☑ Протокол ревизии табеля положенности (Приказ МЧС РФ № 543 / № 999)</h2><span class="ga-tag gray">HASH: 9E4F-…</span></div>
+  <p class="ga-note">Сверка коэффициентов обеспечения сменного персонала НПЗ и внештатных спасательных формирований (НАСФ) с нормами накопления материально-технических средств гражданской обороны.</p><div class="ga-kv"><span>Хеш-сумма складского баланса (ГОСТ Р 34.11-2012):</span><b><code>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b9834</code></b></div><div class="ga-kv"><span>Последняя электронная валидация (Нач. тыловой службы ГОЧС):</span><b><span class="green-text">Кузнецов В. П. • 24.10.2024 08:30:12</span></b></div><div class="ga-kv"><span>Статус регламентной выгрузки ЕАИС МЧС:</span><b><span class="green-text">● СОГЛАСОВАНО БЕЗ ЗАМЕЧАНИЙ</span></b></div><div class="ga-card-foot"><button class="ga-btn " >История калибровок норм (12 ревизий)</button><button class="ga-btn " >Зафиксировать табель в реестре</button></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="training" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: ВКЛЮЧЁН РЕЖИМ СИСТЕМНОГО АУДИТОРА И АДМИНИСТРАТОРА ОБУЧЕНИЯ ГОЧС (РЕЖИМ ПРОСМОТРА И ВЕРИФИКАЦИИ)</b> <span class="ga-tag amber">AUDIT_SUPERVISOR / READ_ALL</span></p>
+    <p>Доступен сквозной мониторинг успеваемости всех цехов, валидация протоколов аттестационной комиссии, проверка подлинности ЭЦП удостоверений в реестре ФИС ФРДО и аудит интеграции с учебным полигоном МЧС. Ручные модификации протоколов заблокированы политикой неизменяемости логов (ГОСТ Р 34.10-2012).</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " >Журнал проверок</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ГОСТ Р 22.0.02-2016 / ПРИКАЗ МЧС РОССИИ № 262 / ПОДГОТОВКА И АТТЕСТАЦИЯ ПЕРСОНАЛА</span></div>
+    <h1>Обучение персонала и график командно-штабных учений (КШУ) </h1>
+    <p>Сводный реестр 4 200 сотрудников, подготовки должностных лиц, командиров НФГО/НАСФ и дежурных смен ОПО.</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn " >Сверка с 1С:ЗУП / Корп. Университет</button> <button class="ga-btn " >Экспорт в ЕАИС МЧС (Форма 3-ГО)</button> <button class="ga-btn " >Проверить реестр ФИС ФРДО</button> <button class="ga-btn primary" >Журнал протоколов комиссий</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Обучено персонала (ГО и ЧС)</span><span class="ga-tag green">В ГРАФИКЕ НОРМЫ</span></div>
+  <strong>4 012<small> / 4 200</small></strong>
+  <p>3 850 сменных, 162 ком./спец.</p><div class="meter"><i style="width:95.5%"></i></div>
+  <span class="ga-link">Сверка табеля →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Очередная переаттестация</span><span class="ga-tag amber">42 ЧЕЛ. ТЕКУЩ. МЕС.</span></div>
+  <strong>188<small> чел.</small></strong>
+  <p>IV кв. 2024 • Цех №1 (Крекинг), Цех №4 (Товарно-сырьевой)</p>
+  <span class="ga-link">Направить в УМЦ / СДО</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Командно-штабные учения (КШУ)</span><span class="ga-tag green">100% ПЛАНА</span></div>
+  <strong>8 из 8</strong>
+  <p>Ближ.: 21.11.2024 • «Выброс хлора / Авария на крекинге»</p><div class="ga-pill green">Полигон КВО готов</div>
+  <span class="ga-link">Тех.карта КШУ →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Протоколы комиссий и КЭП</span><span class="ga-tag green">ВАЛИДНЫ (ГОСТ)</span></div>
+  <strong>24 / 24</strong>
+  <p>Неизменяемость ФСТЭК подтверждена • ГОСТ Р 34.11-2012</p>
+  <span class="ga-link">Реестр актов →</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Поиск по ФИО, табельному номеру, цеху, номеру удостоверения"></label>
+    <select class="ga-select" aria-label="Все подразделения / цеха"><option>Все подразделения / цеха</option></select><select class="ga-select" aria-label="Категория персонала (Все)"><option>Категория персонала (Все)</option></select><select class="ga-select" aria-label="Статус: Все статусы"><option>Статус: Все статусы</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    <b class="ga-quick-label">БЫСТРЫЕ ВЫБОРКИ:</b>
+    <label class="ga-check"><input type="checkbox"> Только истекающие сроки (&lt; 30 дней) • 42 чел.</label><label class="ga-check"><input type="checkbox" checked> Спецподготовка НФГО/НАСФ (Приказ МЧС №701)</label><label class="ga-check"><input type="checkbox"> Не прошедшие верификацию ФИС ФРДО</label><label class="ga-check"><input type="checkbox"> Требующие внеочередной аттестации</label>
+    <span class="ga-found">Найдено: 5 из 4 200 записей (Страница 1 из 840)</span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th class="ga-col-check"><input type="checkbox" aria-label="Выбрать все"></th><th>ФИО / табельный №</th><th>Должность и цех (ОПО)</th><th>Категория ГОСТ</th><th>Программа и учебный центр</th><th>№ удостоверения</th><th>Срок действия / статус</th><th>ФИС ФРДО</th><th>Действия аудитора</th></tr></thead>
+    <tbody>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Воропаев А. Ю.</b><small>Таб. № 04821</small></td><td><b>Командир поста РХН</b><small>Цех №2 (Ароматика, I класс ОПО)</small></td><td><span class="ga-tag blue">Командир НФГО</span></td><td><b>«РХБ-защита формирований НФГО»</b><small>ГКУ ДПО «УМЦ ГОЧС г. Москвы»</small></td><td><b>№ УМЦ-24/0912</b><small>выд. 15.05.2022</small></td><td><span class="status green">Действителен до 15.05.2027</span></td><td><span class="status green">✔ ВЕРИФИЦИРОВАН</span></td><td><span class="ga-icons" aria-hidden="true">▤ ◉ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Дмитриева О. С.</b><small>Таб. № 01194</small></td><td><b>Врач сандружины</b><small>Медсанчасть КВО (ЗС ГО №01)</small></td><td><span class="ga-tag blue">Спецкатегория ГО</span></td><td><b>«Первая помощь при авариях на ХОО»</b><small>Всероссийский центр мед. катастроф</small></td><td><b>№ ВЦМК-8841</b><small>выд. 28.11.2021</small></td><td><span class="status orange">Истекает 28.11.2024 (14 дн.)</span></td><td><span class="status green">✔ ВЕРИФИЦИРОВАН</span></td><td><span class="ga-icons" aria-hidden="true">▤ ◉ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Савельев И. Н.</b><small>Таб. № 03310</small></td><td><b>Командир пожарной команды</b><small>Цех №1 (Крекинг, установка ГФУ)</small></td><td><span class="ga-tag navy">Командир НАСФ</span></td><td><b>«Ликвидация газовых фонтанов ОПО»</b><small>Академия ГПС МЧС России</small></td><td><b>№ АГПС-21/440</b><small>выд. 12.02.2023</small></td><td><span class="status green">Действителен до 12.02.2026</span></td><td><span class="status green">✔ ВЕРИФИЦИРОВАН</span></td><td><span class="ga-icons" aria-hidden="true">▤ ◉ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Макаров Д. В.</b><small>Таб. № 00922</small></td><td><b>Газоспасатель-профессионал</b><small>ПАСФ предприятия (Дежурная смена А)</small></td><td><span class="ga-tag navy">Спасатель (МЧС)</span></td><td><b>«Ликвидация аварийных разливов СДЯВ»</b><small>Корпоративный учебный центр спасателей</small></td><td><b>№ ОУЦС-1992-СП</b><small>выд. 29.08.2022</small></td><td><span class="status green">Действителен до 20.08.2025</span></td><td><span class="status green">✔ ВЕРИФИЦИРОВАН</span></td><td><span class="ga-icons" aria-hidden="true">▤ ◉ ⟲</span></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>Ковальчук А. П.</b><small>Таб. № 05140</small></td><td><b>Мастер смены резервуарного парка</b><small>Цех №4 (Товарно-сырьевой, ОПО II)</small></td><td><span class="ga-tag gray">Персонал ОПО</span></td><td><b>«Ликвидация аварийных разливов СДЯВ»</b><small>Корпоративный учебный центр ГОЧС</small></td><td><b>№ КЦ-23/8190</b><small>выд. 09.09.2023</small></td><td><span class="status green">Действителен до 09.09.2026</span></td><td><span class="status green">✔ ВЕРИФИЦИРОВАН</span></td><td><span class="ga-icons" aria-hidden="true">▤ ◉ ⟲</span></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Показано 5 из 4 200</span><div class="ga-pages"><button class="ga-page" type="button">«</button><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">3</button><button class="ga-page" type="button">»</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>▤ Сводный график командно-штабных тренировок и учений на 2024–2025 гг.</h2><span class="ga-tag gray">ПЛАН-ГРАФИК МЧС РФ</span></div>
+  <div class="ga-plan"><div class="ga-plan-top"><b class="blue-text">21.11.2024</b> <b>«КТСУ НАСФ Цеха №1 (Крекинг)»</b> <span class="status green">План согласован</span> <span class="ga-plan-r green-text">Полигон КВО готов</span></div>
+<p>Сценарий: «Ликвидация свища технологического трубопровода ШФУ с возгоранием факела». 14 единиц техники, 88 спасателей.</p><small>Наблюдатель: ГУ МЧС России</small></div><div class="ga-plan"><div class="ga-plan-top"><b class="blue-text">14.12.2024</b> <b>Общезаводская эвакуационная тренировка</b> <span class="status orange">Подготовка приказа</span> <span class="ga-plan-r green-text">Готовность ЗС: 100%</span></div>
+<p>Экстренная эвакуация дневных смен (1 400 чел.) и укрытие в защитных сооружениях ЗС №01 и №02.</p><small>Норматив: 12 минут</small></div><div class="ga-plan"><div class="ga-plan-top"><b class="blue-text">25.01.2025</b> <b>Проверка пунктов выдачи СИЗ и дегазации</b> <span class="status blue">Планируется</span> <span class="ga-plan-r ">Склад МТС №2</span></div>
+<p>Развёртывание санитарного обмывочного пункта (СОП) и станции обеззараживания одежды (СДО).</p><small>НФГО материального обеспечения</small></div><div class="ga-card-foot"><span>Утверждено Начальником ГО предприятия — Генеральным директором ПАО «Нефтехимпром»</span><button class="ga-btn " >Открыть паспорт учений (Режим просмотра) →</button></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>◎ Аудит протоколов КЭП (ГОСТ Р 34.11-2012)</h2><span class="status green">ФСТЭК VALID</span></div>
+  <div class="ga-kv"><span>Номер краткого протокола:</span><b>Протокол № 18-КЭК от 12.10.2024</b></div><div class="ga-kv"><span>Тематика аттестации:</span><b>Операторы ОПО (Газовая безопасность)</b></div><div class="ga-kv"><span>Председатель комиссии:</span><b>Главный инженер Смирнов Е. В.</b></div><div class="ga-kv"><span>КЭП подписанта:</span><b><span class="green-text">ФХЭП № 77AB-9901-0852 (ДЕЙСТВИТЕЛЕН)</span></b></div><div class="ga-kv"><span>ХЕШ ГОСТ «СТРИБОГ» (256 БИТ):</span><b><span class="green-text">СОВПАДАЕТ С БАЗОЙ МЧС</span></b></div><code class="ga-hash">e412f88c883e512d77a8bc991d84f2105e19bdc844917a328b9876fa359d1b42</code><div class="ga-kv"><span>Статус ЕАИС МЧС:</span><b><span class="green-text">✓ ПРИНЯТО БЕЗ ЗАМЕЧАНИЙ</span></b></div><div class="ga-card-foot"><button class="ga-btn " >Проверить КЭП</button><button class="ga-btn " >Выписка из акта</button></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="reports" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: ВКЛЮЧЁН РЕЖИМ СИСТЕМНОГО АУДИТОРА И АДМИНИСТРАТОРА НАДЗОРНОЙ ОТЧЁТНОСТИ (РЕЖИМ ПРОСМОТРА И ВЕРИФИКАЦИИ)</b> <span class="ga-tag amber">AUDIT_SUPERVISOR / READ_ALL</span></p>
+    <p>Доступен сквозной инспекционный мониторинг регламентных донесений (2-ДУ, 3-ДУ, 1-ЧС, 4-ЧС, 1-ЗС), криптографическая проверка сертификатов КЭП/ЭЦП подписантов, неизменяемость протоколов обмена по ГОСТ Р 34.10-2012 / 34.11-2012 (Стрибог) и аудит квитанций приёма в федеральном шлюзе ЕАИС МЧС. Ручное удаление или модификация зарегистрированных донесений заблокированы регламентом ФСТЭК.</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " >Журнал аудита обращений</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ПРИКАЗА МЧС РОССИИ № 496 / № 999 / ФЗ-28 О ГРАЖДАНСКОЙ ОБОРОНЕ</span></div>
+    <h1>Реестр донесений и надзорная отчётность в МЧС России </h1>
+    <p>Единый криптографический реестр формализованных донесений в ГУ МЧС России по субъекту РФ и ФКУ НЦУКС</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn " >Сверка статусов с ЕАИС МЧС</button> <button class="ga-btn " >Проверить цепочку КЭП</button> <button class="ga-btn " >Журнал квитанций НЦУКС</button> <button class="ga-btn primary" >Экспорт реестра в PDF/A-3</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего донесений за 2024 год</span><span class="ga-tag green">В графике 100%</span></div>
+  <strong>48<small> шт.</small></strong>
+  <p>Принято ЕАИС: 48 из 48 • Задержек отправки: 0</p>
+  <span class="ga-link">Сверка реестра →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Ближайшее донесение</span><span class="ga-tag amber">СРОК ДО 26.11</span></div>
+  <strong>Форма 2-ДУ</strong>
+  <p>Годовое донесение по состоянию ГО предприятия • Ответственный: Штаб ГОЧС</p>
+  <span class="ga-link">Карточка формы →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Валидность КЭП и хешей</span><span class="ga-tag green">ФСТЭК VALID</span></div>
+  <strong>100%<small> ВАЛИДНЫ</small></strong>
+  <p>48/48 проверены по ГОСТ Р 34.11-2012 • <span class="green-text">● Неизменяемость подтверждена</span></p>
+  <span class="ga-link"></span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Проверки и надзор ГУ МЧС</span><span class="ga-tag blue">ИНФО</span></div>
+  <strong>0<small> ПРЕДПИСАНИЙ</small></strong>
+  <p>Акт комплексной проверки от 14.10.2024: нарушений нет • Плановый надзор: III кв. 2025</p>
+  <span class="ga-link">Статус: Зелёный</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Номер акта, форма (2-ДУ, 1-ЧС), КЭП подписанта…"></label>
+    <select class="ga-select" aria-label="Все типы (Периодические / Срочные ЧС / Годовые)"><option>Все типы (Периодические / Срочные ЧС / Годовые)</option></select><select class="ga-select" aria-label="2024 год (Текущий)"><option>2024 год (Текущий)</option></select><select class="ga-select" aria-label="Все статусы (Принято / В обработке)"><option>Все статусы (Принято / В обработке)</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    
+    <label class="ga-check"><input type="checkbox"> Только формы 1-ЧС и экстренные</label><label class="ga-check"><input type="checkbox" checked> КЭП проверена (ГОСТ Р 34.10)</label><label class="ga-check"><input type="checkbox" checked> С наличием квитанции НЦУКС</label>
+    <span class="ga-found">Отображено записей: 5 из 48</span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th>№ донесения / дата</th><th>Форма / наименование донесения</th><th>Адресат в МЧС России</th><th>Подписант (КЭП / должность)</th><th>Статус в ЕАИС МЧС России</th><th>Хеш ГОСТ Р 34.11 / квитанция</th><th>Действия (только просмотр)</th></tr></thead>
+    <tbody>
+<tr><td><b>№ 24-ГО/11</b><small>15.11.2024 09:38:14</small></td><td><b>Форма 3-ГО «Сведения о подготовке и обучении персонала ГО»</b><small>Периодичность: Ежегодно</small></td><td><b>ГУ МЧС России по г. Москве</b><small>ЦУКС / Отдел надзора за ОПО</small></td><td><b>Комиссаров В. Д.</b><small>Нач. штаба ГОЧС <span class="green-text">✓ Сертификат действ.</span></small></td><td><span class="status green">Принято без замечаний</span><small>Квит. № МЧС-094201/24</small></td><td><code>77a8…9901</code></td><td><button class="ga-btn " >Просмотр карточки</button><button class="ga-mini" type="button" aria-label="Документ">▤</button></td></tr>
+<tr><td><b>№ 24-ДУ/03</b><small>01.11.2024 16:15:00</small></td><td><b>Форма 1-ЗС «Техническое состояние ЗС ГО предприятия (18 объектов)»</b><small>Акт готовности приёма сооружений</small></td><td><b>Отдел надзорной деятельности ГУ МЧС</b><small>Инспекция внеплановой защиты</small></td><td><b>Смирнов Е. В.</b><small>Главный инженер НПЗ <span class="green-text">✓ КЭП валидна</span></small></td><td><span class="status green">Принято без замечаний</span><small>Квит. № МЧС-093834/24</small></td><td><code>z32f…88de</code></td><td><button class="ga-btn " >Просмотр карточки</button><button class="ga-mini" type="button" aria-label="Документ">▤</button></td></tr>
+<tr><td><b>№ 24-СИЗ/02</b><small>18.10.2024 11:20:42</small></td><td><b>Форма № 2-СИЗ «Баланс СИЗ и акты перекомплектов ЦЗЛ»</b><small>Номенклатура приказа МЧС № 999</small></td><td><b>Управление гражданской обороны ГУ МЧС</b></td><td><b>Кузнецов В. П.</b><small>Нач. тыловой службы ГО <span class="green-text">✓ КЭП валидна</span></small></td><td><span class="status green">Принято без замечаний</span><small>Квит. № МЧС-089421/24</small></td><td><code>9e4f…102a</code></td><td><button class="ga-btn " >Просмотр карточки</button><button class="ga-mini" type="button" aria-label="Документ">▤</button></td></tr>
+<tr><td><b>№ 24-ФОРМ/04</b><small>11.10.2024 14:02:18</small></td><td><b>Форма № 999 «Сведения о составе и готовности НФГО и НАСФ»</b><small>Штатная численность: 142 чел.</small></td><td><b>Главное управление МЧС России</b></td><td><b>Комиссаров В. Д.</b><small>Нач. штаба ГОЧС <span class="green-text">✓ КЭП валидна</span></small></td><td><span class="status green">Принято без замечаний</span><small>Квит. № МЧС-083112/24</small></td><td><code>8f19…22ef</code></td><td><button class="ga-btn " >Просмотр карточки</button><button class="ga-mini" type="button" aria-label="Документ">▤</button></td></tr>
+<tr><td><b>№ 24-КШУ/01</b><small>22.09.2024 17:45:11</small></td><td><b>Акт проверки готовности «Готовность сил ГО при проведении учения на ОПО»</b><small>Комплексное учение на НПЗ-1</small></td><td><b>Надзорный отдел МЧС / Ростехнадзор</b><small>Совместная комиссия</small></td><td><b>Савельев И. Н.</b><small>Командир НАСФ предприятия <span class="green-text">✓ КЭП валидна</span></small></td><td><span class="status green">Принято без замечаний</span><small>Квит. № МЧС-076454/24</small></td><td><code>c381…55da</code></td><td><button class="ga-btn " >Просмотр карточки</button><button class="ga-mini" type="button" aria-label="Документ">▤</button></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Записей на странице: 25 &nbsp;|&nbsp; Контрольная сумма среза реестра: <code>BF2A-CC91-032D</code></span><div class="ga-pages"><button class="ga-page" type="button">Предыдущая</button><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">Следующая</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>⇄ Мониторинг канала защищённой передачи (Шлюз ЕАИС МЧС РФ)</h2><span class="ga-tag green">КАНАЛ ШЛЮЗА АКТИВЕН</span></div>
+  <div class="ga-kv"><span>Протокол криптозащиты:</span><b>TLS 1.3 ГОСТ (КриптоПро CSP 5.0 R3)</b></div><div class="ga-kv"><span>Туннель VPN ViPNet / Контур К1/1Г:</span><b><span class="green-text">● Соединение установлено (Пинг: 12 мс)</span></b></div><div class="ga-kv"><span>Последняя контрольная репликация:</span><b>Сегодня, 14:50:02 MSK</b></div><div class="ga-kv"><span>Потеря пакетов в защищённом шлюзе:</span><b><span class="green-text">0.00% (Без сбоев)</span></b></div><div class="ga-card-foot"><span>Узел: GW-MCX-PROD-01 (10.240.12.8)</span><span><button class="ga-btn " >Проверить пинг шлюза</button> <button class="ga-btn " >Служебный лог обмена</button></span></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>◎ Аудит подписей и неизменяемости (ФСТЭК / ГОСТ Р 34.10)</h2><span class="ga-tag green">ЦЕЛОСТНОСТЬ 100%</span></div>
+  <div class="ga-kv"><span>Корневой УЦ аккредитации:</span><b>Головной УЦ Минцифры России</b></div><div class="ga-kv"><span>Срок действия сертификата шлюза:</span><b>до 18.09.2027 (Осталось 306 дн.)</b></div><p class="ga-note">Контрольная сумма реестра (ГОСТ Р 34.11-2012 Стрибог 256):</p><code class="ga-hash">#9b8c44219f1cc14fbf0ac0094f192427ae41e4649b9834ca9569f1b76b2ad59</code><p class="ga-note green-text">✓ Файлы защищены от модификации</p><div class="ga-card-foot"><button class="ga-btn " >Валидировать реестр ЭЦП</button><button class="ga-btn " >Выписка аудита (PDF)</button></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="documents" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: АКТИВИРОВАН РЕЖИМ СУПЕРПОЛЬЗОВАТЕЛЯ И АДМИНИСТРАТОРА ДОКУМЕНТООБОРОТА ГОЧС (ПОЛНЫЙ ДОСТУП / SU_WRITE)</b> <span class="ga-tag amber">AUDIT_SUPERVISOR / ROOT_READ_WRITE / CRYPTO_SIGN</span></p>
+    <p>Вам доступны операции прямого ввода в действие локальных нормативных актов предприятия, принудительного отзыва приказов, пакетного подписания КЭП по ГОСТ Р 34.10-2012, изменения грифов конфиденциальности и публикации регламентов в защищённый контур филиалов. Все транзакции заверяются криптографическим штампом времени (TSP) и регистрируются в неизменяемом журнале ФСТЭК.</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " >Журнал транзакций КЭП</button> <button class="ga-btn " >Настройки доступа к архиву</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ 28-ФЗ «О ГРАЖДАНСКОЙ ОБОРОНЕ» / ПРИКАЗ МЧС РФ № 999 / СТО ГОЧС-2024</span></div>
+    <h1>Регламенты и нормативная документация ГОЧС </h1>
+    <p>Единый защищённый депозитарий локальных актов, планов ГО, инструкций по эвакуации и федеральной нормативной базы</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn primary" >+ Загрузить и ввести в действие акт</button> <button class="ga-btn " >Пакетное подписание КЭП (ГОСТ)</button> <button class="ga-btn " >Синхронизация с НПА МЧС РФ (Онлайн)</button> <button class="ga-btn " >Управление грифами доступа (RBAC)</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего документов на учёте</span><span class="ga-tag green">100% АКТУАЛЬНО</span></div>
+  <strong>142<small> ед.</small></strong>
+  <p>38 федер. ГОСТ/СП • 46 приказов • 18 планов • 40 инстр. • Классификатор КВН-07</p>
+  <span class="ga-link">Редактировать классификатор →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Требуют плановой ревизии</span><span class="ga-tag amber">СРОК &lt; 30 ДНЕЙ</span></div>
+  <strong>3<small> акта</small></strong>
+  <p>План эвакуации Цеха №2, Инструкция ПАСФ, Регламент ЗС • Контроль: СБ ГОЧС</p>
+  <span class="ga-link">Назначить ревизию →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Валидность КЭП и ЭЦП</span><span class="ga-tag green">ФСТЭК VALID</span></div>
+  <strong>100%<small> валидны</small></strong>
+  <p>142 из 142 • Хеши ГОСТ Р 34.11-2012 подтверждены • УЦ ФИС / Минцифры</p>
+  <span class="ga-link">Проверить сертификаты →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Грифы и конфиденциальность</span><span class="ga-tag blue">ГОСТ 28147-89</span></div>
+  <strong>ЗАЩИЩЕНО</strong>
+  <p>12 актов «ДСП» • 4 «КТ» • 126 «Общий доступ предприятия» • Криптомодуль активен</p>
+  <span class="ga-link">Матрица прав доступа →</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-table-head"><div><h2>Реестр локальных актов и регламентов</h2></div><span class="ga-tag navy">ROOT READ/WRITE</span><div class="ga-table-tools">Выбрано: 1 акт <button class="ga-btn " >Подписать КЭП (SU)</button><button class="ga-btn danger-outline" >Архивировать</button></div></div><div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="План ГО"></label>
+    <select class="ga-select" aria-label="Категория: Все документы"><option>Категория: Все документы</option></select><select class="ga-select" aria-label="Статус: Любой статус"><option>Статус: Любой статус</option></select><select class="ga-select" aria-label="Гриф: Все грифы"><option>Гриф: Все грифы</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    <b class="ga-quick-label">БЫСТРЫЕ ВЫБОРКИ:</b>
+    <label class="ga-check"><input type="checkbox" checked> Только требующие утверждения SU</label><label class="ga-check"><input type="checkbox" checked> Подписанные действующей КЭП ГОСТ</label><label class="ga-check"><input type="checkbox"> Срок ревизии ≤ 30 дней</label><label class="ga-check"><input type="checkbox"> Конфиденциальные (ДСП / КТ)</label>
+    <span class="ga-found">Найдено: 5 из 142</span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th class="ga-col-check"><input type="checkbox" aria-label="Выбрать все"></th><th>Обозначение и дата</th><th>Наименование документа и объект</th><th>Категория / гриф</th><th>Ревизия / версия</th><th>КЭП подписант / сертификат</th><th>Статус / срок</th><th>Административные действия</th></tr></thead>
+    <tbody>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>№ 118-ОД</b><small>от 15.01.2026</small></td><td><b>О введении в действие Плана ГО и защиты населения ПАО «Нефтехимпром» на 2024–2028 гг.</b><small>Все объекты ПАО «Нефтехимпром» (Площадки №1, 2, Резервуарный парк)</small></td><td><b>Приказ ОД</b> <span class="ga-tag amber">ДСП / Контур А</span></td><td><b class="ga-code">v.4.2</b><small>SHA256: 8f9b…a1de</small></td><td><b>Генеральный директор</b><small class="green-text">✓ КЭП валидна (ГОСТ-2012)</small></td><td><span class="status green">Действует</span><small>Ревизия: 15.01.2027</small></td><td><button class="ga-btn " >Редакт.</button><button class="ga-btn " >Новая ред.</button><button class="ga-btn danger-outline" >✕</button></td></tr>
+<tr class="selected"><td class="ga-col-check"><input type="checkbox" checked aria-label="Выбрать строку"></td><td><b>ПГО-04-2024</b><small>утв. 22.02.2026</small></td><td><b>План действий по предупреждению и ликвидации ЧС природного и техногенного характера</b> <span class="ga-tag amber">12 томов</span><small>С оперативным приложением карт зон заражения хлором и АХОВ</small></td><td><b>План ГО предприятия</b> <span class="ga-tag amber">ДСП / ОПО I класс</span></td><td><b class="ga-code">v.3.0</b><small>вып. 1 (SIG)</small></td><td><b>Начальник штаба ГОЧС</b><small class="orange-text">⚠ Требует доп. КЭП SU</small></td><td><span class="status orange">Утверждается</span><small>Согл. ГУ МЧС</small></td><td><button class="ga-btn primary" >Утвердить SU</button><button class="ga-btn " >ZIP (.SIG)</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>И-ГО-14/23</b><small>от 12.11.2023</small></td><td><b>Порядок герметизации и жизнеобеспечения ЗС ГО №01, 02, 04 при химической опасности</b><small>Убежища А-IV: Производственная зона (Цех 01, 02)</small></td><td><b>Инструкция цеховая</b> <span class="ga-tag gray">Внутризаводской</span></td><td><b class="ga-code">v.2.1</b><small>Был пересмотр 2023</small></td><td><b>Гл. специалист по ЗС ГО</b><small class="green-text">✓ КЭП валидна</small></td><td><span class="status orange">Требует ревизии</span><small>Срок: до 20.12.2026</small></td><td><button class="ga-btn amber" >Продлить</button><button class="ga-btn " >Запрос</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>СТО-ГО-08-2024</b><small>от 04.03.2026</small></td><td><b>Положение о нештатных формированиях по обеспечению мероприятий ГО (НФГО) и НАСФ</b><small>Штатная численность: 148 чел., 6 постов РХБН, 2 СПК</small></td><td><b>Стандарт предприятия</b> <span class="ga-tag green">Общий доступ</span></td><td><b class="ga-code">v.1.0</b><small>Редакция 2024</small></td><td><b>Главный инженер</b><small class="green-text">✓ КЭП валидна</small></td><td><span class="status green">Действует</span><small>Ревизия: 04.03.2029</small></td><td><button class="ga-btn " >Редакт.</button><button class="ga-btn " >PDF</button></td></tr>
+<tr><td class="ga-col-check"><input type="checkbox" aria-label="Выбрать строку"></td><td><b>ГОСТ Р 22.9.19-2014</b><small>Приказ МЧС № 543</small></td><td><b>Нормы оснащения СИЗ и материально-техническими средствами нештатных формирований ГО</b><small>Федеральный классификатор нормативных требований (МЧС РФ)</small></td><td><b>Федеральный стандарт</b> <span class="ga-tag blue">Открытый / МЧС</span></td><td><b class="ga-code">Изм. 1, 2</b><small>Консультант</small></td><td><b>Шлюз НПА МЧС России</b><small class="green-text">✓ Синхронизирован</small></td><td><span class="status blue">Эталонный акт</span><small>Сверка: Сегодня</small></td><td><button class="ga-btn " >Сверить</button><button class="ga-btn " >Связи (18)</button></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Показано: 5 из 142 регламентов &nbsp;|&nbsp; Строк на странице: 25</span><div class="ga-pages"><button class="ga-page" type="button">‹</button><button class="ga-page active" type="button">1</button><button class="ga-page" type="button">2</button><button class="ga-page" type="button">3</button><button class="ga-page" type="button">…</button><button class="ga-page" type="button">6</button><button class="ga-page" type="button">›</button></div></div>
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>▤ Управление электронным хранилищем (S3 MinIO Crypt)</h2><span class="ga-tag green">S3 HEALTHY</span></div>
+  <p class="ga-note">Физический пул: Cluster-DC1-Petrochem • Шифрование ГОСТ 28147-89</p><div class="ga-kv"><span>Занято под архивы и тома ГО:</span><b>14.8 ТБ / 50.0 ТБ (29.6%)</b></div><div class="meter"><i style="width:29.6%"></i></div><div class="ga-kv"><span>Файлов в репозитории: 1 482 ед.</span><b>Зеркалирование: Ceph Triple-Replica</b></div><div class="ga-card-foot"><button class="ga-btn " >Создать резервную копию S3</button><button class="ga-btn " >Принудительная OCR-индексация</button><button class="ga-btn " >Проверка кешей файлов</button></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>⚿ Центр сертификации и КЭП суперпользователя</h2><span class="ga-tag green">CRL / OCSP ONLINE</span></div>
+  <p class="ga-note">Криптопровайдер КриптоПро CSP 5.0 R3 • Алгоритм ГОСТ Р 34.10-2012</p><div class="ga-cert"><b>Сертификат SU / Root СБ ГОЧС:</b> <code>Серийный: 04C2-80A1-9921-FF40</code><div class="ga-kv"><span>Владелец:</span><b>Комиссаров В. Д. (Право подписания за Ген. директора по документу № 44-ДГ)</b></div><div class="ga-kv"><span>Действителен:</span><b>до 14.10.2027 &nbsp; <span class="green-text">Статус: Активен (Проверен 14:50 MSK)</span></b></div></div><div class="ga-card-foot"><span>Штамп времени TSP: Сервер МЧС РФ</span><button class="ga-btn primary" >Подписать пакет документов сертификатом SU (ГОСТ)</button></div>
+</section></div>
+</section>
+<section class="ga-view" data-ga-view="rbac" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>СЛУЖЕБНЫЙ ДОСТУП SU/ADMIN</b> <span class="ga-tag amber">ROOT_SECURITY_ADMIN</span> <span class="ga-tag amber">RBAC_MATRIX_WRITE</span> <span class="ga-tag amber">FSTEK_CLASS_K1</span></p>
+    <p>ВНИМАНИЕ: Активирован режим конфигурации матрицы прав доступа RBAC и политик безопасности ФСТЭК. Любые изменения подлежат немедленному криптографическому логированию в журнале аудита.</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " data-ga-tab="audit">Журнал сессий и аудита прав</button> <button class="ga-btn " >Экспорт матрицы доступа (ГОСТ)</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ПРИКАЗА ФСТЭК РОССИИ № 21 / СТО ГОЧС-2024-SEC / МАТРИЦА МАНДАТНОГО И ДИСКРЕЦИОННОГО КОНТРОЛЯ</span></div>
+    <h1>Управление ролями и матрицей доступа RBAC </h1>
+    <p>Централизованное разграничение прав доступа, назначение ролей персоналу штаба ГОЧС, формирование политик КЭП и контроль двухфакторной аутентификации.</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn " >Синхронизация с AD / LDAP</button> <button class="ga-btn primary" >+ Создать новую роль</button> <button class="ga-btn primary" >+ Назначить роль пользователю</button> <button class="ga-btn green" >Применить политики (КЭП)</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего учётных записей</span><span class="ga-tag green">БД</span></div>
+  <strong><span id="gaUsersTotal">…</span><small> пользователей</small></strong>
+  <p>Данные из базы данных • AD Kerberos OK</p>
+  <span class="ga-link"></span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Активных ролей в системе</span></div>
+  <strong><span id="gaUsersRoles">…</span><small> профилей прав</small></strong>
+  <p>SU, Офицеры, Командиры • RBAC v2.4 OK</p>
+  <span class="ga-link"></span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Требование КЭП и 2FA</span></div>
+  <strong>100%<small> охват админов</small></strong>
+  <p>Рутокен 3.0 / JaCarta • ГОСТ 34.10 VALID</p>
+  <span class="ga-link"></span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Соответствие ФСТЭК</span><span class="ga-tag green">СООТВЕТСТВУЕТ</span></div>
+  <strong>1Г / УЗ-1<small> класс защиты</small></strong>
+  <p>Нарушений матриц: 0</p>
+  <span class="ga-link"></span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-table-head"><div><h2>Матрица ролей, полномочий и модулей ГОЧС</h2></div><span class="ga-tag blue">ГОСТ Р ИСО/МЭК 27001</span><div class="ga-table-tools">Фильтр по уровню: <select class="ga-select" aria-label="Все уровни доступа"><option>Все уровни доступа</option></select></div></div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th>Роль / профиль доступа</th><th>Уровень привилегий</th><th>Разрешённые подсистемы (модули)</th><th>Тревога</th><th>КЭП / ЭЦП</th><th>Пользователей</th><th>Статус</th><th>Действия</th></tr></thead>
+    <tbody>
+<tr><td><span class="ga-role-code">SU</span> <b>Суперпользователь / Администратор ИБ</b><small>ROLE_SU_ROOT_ADMIN • ИД: 001</small></td><td><span class="ga-level red">Full Control (Write All, Crypto Sign)</span></td><td><span class="ga-mods"><i>Все модули</i> <i>Ядро и Шлюзы</i> <i>Журнал ФСТЭК</i> <i>SCADA Ядро</i></span></td><td><span class="ga-tag amber">ДА</span></td><td>Обязательно</td><td><b>2</b></td><td><span class="status green">АКТИВНА</span></td><td><button class="ga-btn " >Права</button> <span class="ga-more" aria-hidden="true">⋮</span></td></tr>
+<tr><td><span class="ga-role-code">НШ</span> <b>Ответственный за ГО (Начальник штаба ГОЧС)</b><small>ROLE_GO_CHIEF_OFFICER • ИД: 002</small></td><td><span class="ga-level ">Управление ГОЧС, подписание донесений, ввод планов ГО</span></td><td><span class="ga-mods"><i>Все 7 оперативных модулей</i> <i>Отчёты МЧС (RW)</i></span></td><td><span class="ga-tag amber">С подтв.</span></td><td>Обязательно</td><td><b>3</b></td><td><span class="status green">АКТИВНА</span></td><td><button class="ga-btn " >Права</button> <span class="ga-more" aria-hidden="true">⋮</span></td></tr>
+<tr><td><span class="ga-role-code">ОД</span> <b>Оперативный дежурный ГОЧС</b><small>ROLE_DUTY_DISPATCHER • ИД: 003</small></td><td><span class="ga-level ">Оперативное дежурство, фиксация инцидентов, запуск оповещения</span></td><td><span class="ga-mods"><i>Дежурство</i> <i>SCADA</i> <i>ЗС ГО</i> <i>НФГО</i></span></td><td><span class="ga-tag amber">ДА</span></td><td>Опционально</td><td><b>8</b></td><td><span class="status green">АКТИВНА</span></td><td><button class="ga-btn " >Права</button> <span class="ga-more" aria-hidden="true">⋮</span></td></tr>
+<tr><td><span class="ga-role-code">КФ</span> <b>Командир формирования (НФГО / НАСФ)</b><small>ROLE_NFGO_COMMANDER • ИД: 004</small></td><td><span class="ga-level ">Табель оснащения, явка состава, карточки формирований</span></td><td><span class="ga-mods"><i>НФГО / НАСФ (RW состав)</i> <i>Обучение (Read)</i></span></td><td><span class="ga-tag gray">НЕТ</span></td><td>Нет</td><td><b>48</b></td><td><span class="status green">АКТИВНА</span></td><td><button class="ga-btn " >Права</button> <span class="ga-more" aria-hidden="true">⋮</span></td></tr>
+<tr><td><span class="ga-role-code">МЧС</span> <b>Инспектор МЧС России / Аудитор СБ</b><small>ROLE_MCHS_EXTERNAL_AUDITOR • ИД: 005</small></td><td><span class="ga-level ">Read-Only (Выгрузка донесений, проверка КЭП)</span></td><td><span class="ga-mods"><i>Отчётность (RO)</i> <i>Регламенты (RO)</i> <i>Журнал ФСТЭК (RO)</i></span></td><td><span class="ga-tag amber">ДА</span></td><td>Сертификат МЧС</td><td><b>4</b></td><td><span class="status orange">ОГРАНИЧЕН</span></td><td><button class="ga-btn " >Права</button> <span class="ga-more" aria-hidden="true">⋮</span></td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span>Отображено 5 базовых профилей из 7 • Дискреционная модель доступа: ГОСТ Р 51583-2014</span><button class="ga-link-btn" type="button">Показать служебные роли ядра (2)</button></div>
+</section>
+<section class="ga-table-card">
+<div class="ga-table-head"><div><h2>Реестр активных пользователей и привязка к ролям</h2><p>Мониторинг привязки учётных записей к табельным номерам, подразделениям и сертификатам аппаратной КЭП.</p></div><span class="ga-tag blue" id="gaUsersSessions">… активных сессий</span></div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th>ФИО / табельный номер</th><th>Подразделение / должность</th><th>Назначенная роль RBAC</th><th>Сертификат КЭП (ГОСТ Р 34.10)</th><th>Последний вход</th><th>2FA / токен</th><th>Управление доступом</th></tr></thead>
+    <tbody id="gaUsersBody">
+<tr><td colspan="7" class="ga-empty">Загрузка из базы данных…</td></tr>
+    </tbody>
+  </table></div>
+<div class="ga-table-foot"><span id="gaUsersFoot">Загрузка…</span></div>
+</section>
+</section>
+<section class="ga-view" data-ga-view="audit" hidden>
+<section class="ga-banner yellow">
+  <span class="ga-banner-icon" aria-hidden="true">⚠</span>
+  <div class="ga-banner-body">
+    <p class="ga-banner-title"><b>ВНИМАНИЕ: АКТИВИРОВАН РЕЖИМ НЕИЗМЕНЯЕМОГО ЖУРНАЛА СОБЫТИЙ БЕЗОПАСНОСТИ ФСТЭК РОССИИ (ПРИКАЗ № 21, № 17).</b> <span class="ga-tag amber">УРОВЕНЬ ПРИВИЛЕГИЙ: ROOT_SECURITY_AUDIT / IMMUTABLE_LOG / FSTEK_CLASS_1G_K1</span></p>
+    <p>Все действия администраторов, попытки эскалации привилегий, факты выгрузки данных, изменения матриц RBAC и активации каналов оповещения фиксируются в аппаратно-защищённом хранилище (WORM) с криптографическим штампом времени (ГОСТ Р 34.10-2012 / RFC 3161).</p>
+  </div>
+  <div class="ga-banner-actions"><button class="ga-btn " >Выгрузка акта проверки ФСТЭК (PDF/A-3)</button> <button class="ga-btn primary" >Проверить целостность хеш-цепочки (Стрибог)</button></div>
+  <button class="ga-banner-close" type="button" data-dismiss aria-label="Скрыть уведомление">✕</button>
+</section>
+<div class="ga-head">
+  <div class="ga-head-text">
+    <div class="ga-tags"><span class="ga-crumb">РЕГЛАМЕНТ ПРИКАЗА ФСТЭК № 21 • ТРЕБОВАНИЯ К ЗИ № 239-ФЗ • КЛАСС ЗАЩИЩЁННОСТИ 1Г / УЗ-1</span></div>
+    <h1>Журнал аудита информационной безопасности и событий ГОЧС (ФСТЭК) </h1>
+    <p>Централизованный неизменяемый протокол регистрации событий безопасности, действий пользователей, криптографических транзакций и системных изменений</p>
+  </div>
+  <div class="ga-actions"><button class="ga-btn " >Экспорт лога (Syslog / CEF / CSV)</button> <button class="ga-btn primary" >Фиксация контрольной точки (Checkpoint)</button></div>
+</div>
+<section class="ga-kpis"><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Всего событий за 24 часа</span></div>
+  <strong><span id="gaAuditTotal24">…</span></strong>
+  <p>Записей в журнале безопасности • всего: <span id="gaAuditTotal">…</span></p>
+  <span class="ga-link">Сводка Syslog →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Критические инциденты (ALERT / CRIT)</span><span class="ga-tag green" id="gaAuditCriticalBadge">В НОРМЕ</span></div>
+  <strong><span id="gaAuditCritical">…</span></strong>
+  <p><span id="gaAuditCriticalNote">Последняя тревога: …</span></p>
+  <span class="ga-link">Правила корреляции →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Целостность хеш-цепочки</span><span class="ga-tag green">ГОСТ 34.11 VALID</span></div>
+  <strong>100%<small> ВАЛИДНА</small></strong>
+  <p>Блокчейн-лог WORM • Проверено в 14:50 MSK • Стрибог 256 / SHA-256</p>
+  <span class="ga-link">Акт проверки →</span>
+</article><article class="ga-kpi">
+  <div class="ga-kpi-title"><span>Соответствие ФСТЭК России</span><span class="ga-tag green">СЕРТИФИЦИРОВАНО</span></div>
+  <strong>КЛАСС 1Г / К1</strong>
+  <p>Сертификат соответствия ФСТЭК № 4412/П до 2027 г. • КИИ № 239-ФЗ</p>
+  <span class="ga-link">Паспорт формуляра →</span>
+</article></section>
+<section class="ga-table-card">
+<div class="ga-table-head"><div><h2>Реестр проверенных записей журнала безопасности</h2></div><span class="ga-tag green">Хеш-дерево Меркла: Валидно</span><div class="ga-table-tools"><button class="ga-btn" type="button" data-ga-refresh="audit">↻ Обновить</button></div></div><div class="ga-filters">
+  <div class="ga-filter-row">
+    <label class="ga-search"><span aria-hidden="true">⌕</span><input type="search" id="gaAuditSearch" placeholder="Поиск по IP-адресу, логину, коду события…"></label>
+    <select class="ga-select" aria-label="Категория: Все события"><option>Категория: Все события</option></select><select class="ga-select" aria-label="Уровень: Все уровни"><option>Уровень: Все уровни</option></select><select class="ga-select" aria-label="Период: Последние 24 часа"><option>Период: Последние 24 часа</option></select><select class="ga-select" aria-label="Подсистема: Все модули"><option>Подсистема: Все модули</option></select>
+    <button class="ga-btn " >Сброс</button>
+  </div>
+  <div class="ga-filter-row ga-quick">
+    
+    <label class="ga-check"><input type="checkbox"> Только действия суперпользователей (SU/ROOT)</label><label class="ga-check"><input type="checkbox"> Только события с КЭП (ГОСТ)</label><label class="ga-check"><input type="checkbox" id="gaAuditCriticalOnly"> Только критические (ALERT)</label>
+    <span class="ga-found"><span id="gaAuditFound">Загрузка…</span> &nbsp; <button class="ga-link-btn" type="button" id="gaAuditReset">Сбросить фильтры</button></span>
+  </div>
+</div>
+  <div class="table-scroll"><table class="ga-table">
+    <thead><tr><th>Время (MSK) / ID</th><th>Уровень / код</th><th>Субъект / сессия</th><th>Категория и содержание события</th><th>Целевой объект</th><th>Метод / штамп времени</th><th>Действия</th></tr></thead>
+    <tbody id="gaAuditBody">
+<tr><td colspan="7" class="ga-empty">Загрузка из базы данных…</td></tr>
+    </tbody>
+  </table></div>
+
+</section>
+<div class="ga-cols2"><section class="ga-card">
+  <div class="ga-card-head"><h2>▣ Аппаратный криптомодуль штампа времени и WORM-хранилище</h2><span class="ga-tag blue">HSM K1 АКТИВЕН</span></div>
+  <div class="ga-kv"><span>Аппаратный модуль безопасности:</span><b>КриптоПро HSM 2.0 (Класс К1)</b></div><div class="ga-kv"><span>Использование WORM NVMe тома:</span><b>2.4 ТБ из 16.0 ТБ (15% заполнено)</b></div><div class="ga-kv"><span>Репликация в ТО МЧС / ФСБ:</span><b><span class="green-text">● Защищённый туннель ГОСТ (Пинг: 4 мс)</span></b></div><div class="ga-kv"><span>Аппаратный датчик случайных чисел:</span><b>ГОСТ Р 34.11-2012 (Энтропия: 99.98%)</b></div><div class="ga-kv"><span>Резерв защищённого накопителя (Нестираемая память WORM)</span><b>13.6 ТБ свободно</b></div><div class="meter"><i style="width:15%"></i></div><div class="ga-card-foot"><span>Режим перезаписи: <b>ЗАПРЕЩЕН АППАРАТНО</b> (WORM Jumper Locked)</span><span>Контроль целостности: ОШИБОК: 0</span></div>
+</section><section class="ga-card">
+  <div class="ga-card-head"><h2>☑ Инспекционный модуль ФСТЭК России (Готовность к аудиту)</h2><span class="ga-tag blue">РЕВИЗИЯ 2024 ГОТОВА</span></div>
+  <div class="ga-kv"><span>Контрольная сумма реестра (Стрибог-256):</span><b><code>8E2F-1A81-9907-0012-DE77-C011</code></b></div><div class="ga-kv"><span>Непрерывность цепочки хешей:</span><b><span class="green-text">⇄ Разрывы хешей не обнаружены (100% Valid)</span></b></div><div class="ga-kv"><span>Подпись ответственного офицера СБ:</span><b>Комиссаров В. Д. (КЭП действительна до 12.2027)</b></div><div class="ga-kv"><span>Формат выгрузки:</span><b>XML FSTEK SecEvent v2.4, JSON-LD, CEF</b></div><div class="ga-card-foot"><button class="ga-btn " >Сформировать выгрузку в формате ФСТЭК (XML/JSON)</button></div>
+</section></div>
+</section>
+      <footer class="ga-foot"><span>АСУ ГО и ЧС Предприятия v4.8.1-PROD</span><span>Соответствие: СП 88.13330.2014, Приказ МЧС РФ № 583</span><span>Контрольная сумма ГОСТ Р 34.11-2012: SHA-256 Valid</span></footer>
+    </main>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
